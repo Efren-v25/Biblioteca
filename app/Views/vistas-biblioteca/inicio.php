@@ -1,30 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Inicio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
+<?php echo $header; ?>
 
-    <ul class="nav nav-tabs" id="navId">
-        <li class="nav-item">
-            <a href="#tab1Id" class="nav-link active">NombreProyecto</a>
-        </li>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Subir archivo</h4>
+        <p class="card-text">
+            <form method="post" action="" enctype="multipart/form-data">
 
-        <li class="nav-item">
-            <a href="#tab5Id" class="nav-link">Libros</a>
-        </li>
+                <div class="form-group">
+                    <label for="my-input">Nombre del archivo</label>
+                    <input id="my-input" class="form-control" type="text" name="">
+                </div>
 
-        <li class="nav-item">
-            <a href="#tab5Id" class="nav-link">Subir archivo</a>
-        </li>
+                <div class="form-group">
+                    <label for="my-input">Categoria</label> <br>
+                    <select name="" id="">
+                        <option value=""></option>
+                        <option value="">Calculo</option>
+                        <option value="">Fisica</option>
+                    </select>
+                </div>
 
-        <li class="nav-item">
-            <a href="#tab5Id" class="nav-link">Mis archivos</a>
-        </li>
-    </ul>
+                <div class="form-group">
+                    <label for="my-input">Text</label>
+                    <input id="my-input" class="form-control" type="text" name="">
+                </div>
+            </form>
+        </p>
+    </div>
+</div>
+
+
+<?php echo $footer; ?>
+
 
     
     
-</body>
-</html>
