@@ -102,6 +102,7 @@ class Clibros extends Controller{
 
         if(count($datosUsuario) > 0 && password_verify($password, $datosUsuario[0]["contraseña"])){
             $data = [
+                "logged" => true,
                 "nombre" => $datosUsuario[0]["nombre"],
                 "apellido" => $datosUsuario[0]["apellido"],
                 "code" => $datosUsuario[0]["code"]
@@ -122,6 +123,7 @@ class Clibros extends Controller{
         }
     }
 
+//funcion para el salir
     public function salir(){
         $session = session();
         $session->destroy();
