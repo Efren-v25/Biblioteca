@@ -1,0 +1,35 @@
+CRITICAL - 2024-12-22 12:58:13 --> Error: Class "App\Filters\autenticador" not found
+[Method: GET, Route: inicio]
+in SYSTEMPATH\Filters\Filters.php on line 197.
+ 1 SYSTEMPATH\Filters\Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 2 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('inicio', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-22 13:01:25 --> CodeIgniter\HTTP\Exceptions\HTTPException: The route for "http://localhost/biblioteca/public/index.php/login" cannot be found.
+[Method: GET, Route: inicio]
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 64.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(64): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/biblioteca/public/index.php/login')
+ 2 SYSTEMPATH\Common.php(853): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Filters\Autenticador.php(17): redirect('http://localhost/biblioteca/public/index.php/login')
+ 4 SYSTEMPATH\Filters\Filters.php(203): App\Filters\Autenticador->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 5 SYSTEMPATH\Filters\Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 6 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('inicio', 'before')
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-22 13:01:56 --> CodeIgniter\HTTP\Exceptions\HTTPException: The route for "http://localhost/biblioteca/public/index.php/login" cannot be found.
+[Method: GET, Route: inicio]
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 64.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(64): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/biblioteca/public/index.php/login')
+ 2 SYSTEMPATH\Common.php(853): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Filters\Autenticador.php(17): redirect('http://localhost/biblioteca/public/index.php/login')
+ 4 SYSTEMPATH\Filters\Filters.php(203): App\Filters\Autenticador->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 5 SYSTEMPATH\Filters\Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 6 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('inicio', 'before')
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
