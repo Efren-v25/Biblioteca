@@ -5,7 +5,7 @@ use CodeIgniter\Model;
 
 class RegistroLogin extends Model{
     protected $table      = 'login'; //tabla
-    protected $primaryKey = 'id'; //llave primaria
+    protected $primaryKey = 'id_usuario'; //llave primaria
     protected $allowedFields= ["nombre","apellido","correo","contraseña","code"];
 
     public function obtenerUsuario($data){

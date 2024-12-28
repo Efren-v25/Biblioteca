@@ -14,6 +14,8 @@ class Cbiblioteca extends Controller{
 
 //funcion para mostrar el inicio de estudiantes
     public function inicio(){
+        $mostrar = new Libros();
+        $datos["libros"] = $mostrar->orderBy("fecha_subida","ASC")->findAll();
         $datos["header"] = view("templates/header"); //agregar el header
         $datos["footer"] = view("templates/footer"); //agregar el footer
 
@@ -22,6 +24,8 @@ class Cbiblioteca extends Controller{
 
 //funcion para mostrar el inicio de profesores
     public function inicio_profesores(){
+        $mostrar = new Libros();
+        $datos["libros"] = $mostrar->orderBy("fecha_subida","ASC")->findAll();
         $datos["header"] = view("templates/header"); 
         $datos["footer"] = view("templates/footer");
 
@@ -115,6 +119,7 @@ class Cbiblioteca extends Controller{
         if(count($datosUsuario) > 0 && password_verify($password, $datosUsuario[0]["contraseña"])){
             $data = [
                 "logged" => true,
+                "id_usuario" => $datosUsuario[0]["id_usuario"],
                 "nombre" => $datosUsuario[0]["nombre"],
                 "apellido" => $datosUsuario[0]["apellido"],
                 "code" => $datosUsuario[0]["code"]
@@ -235,11 +240,11 @@ class Cbiblioteca extends Controller{
         //verificar si se recibio el archivo
         if ($archivo = $this->request->getFile("archivo")) {
             $nombreOriginal = $archivo->getName(); //bbtiene el nombre original del archivo
-            $archivo->move("../writable/uploads/archivos", $nombreOriginal); //mover el archivo
+            $archivo->move("../public/uploads/archivos", $nombreOriginal); //mover el archivo
         
             if ($portada = $this->request->getFile("portada")) {
                 $nuevoNombrePortada = $portada->getRandomName(); //asigna un nombre random a la foto
-                $portada->move("../writable/uploads/portadas", $nuevoNombrePortada); //mover la foto
+                $portada->move("../public/uploads/portadas", $nuevoNombrePortada); //mover la foto
             } else {
                 $nuevoNombrePortada = null;
             } 
@@ -259,8 +264,11 @@ class Cbiblioteca extends Controller{
             $apellido = $session->get("apellido");
             $autor = $nombre . " " . $apellido;
 
+            $idUsuario = $session->get('id_usuario');
+
             //recibir los datos
             $datos=[
+                "id_usuario"=> $idUsuario,
                 "titulo"=> $this->request->getVar("titulo"),
                 "portada"=> $nuevoNombrePortada,
                 "archivo"=> $nombreOriginal,
@@ -285,9 +293,15 @@ class Cbiblioteca extends Controller{
 
 //funcion para mostrar la vista listar
     public function listar(){
-        $datos["header"] = view("templates/header"); //agregar el header
-        $datos["footer"] = view("templates/footer"); //agregar el footer
+        $libroModel = new Libros();
+        $etiqueta = new etiquetas();
+        $idUsuario = session()->get('id_usuario'); // Obtén el ID del usuario actual desde la sesión.
+        
+        $datos["etiquetas"] = $etiqueta->orderBy("id_libro","ASC")->findAll();
+        $datos['libros'] = $libroModel->obtenerPorUsuario($idUsuario);
+        $datos["header"] = view("templates/header"); 
+        $datos["footer"] = view("templates/footer");
 
-        return view("vistas-biblioteca/listar", $datos); //mostrar la vista + header y footer
+        return view("vistas-biblioteca/listar", $datos);
     }
 }  
