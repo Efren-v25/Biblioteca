@@ -1,0 +1,282 @@
+CRITICAL - 2024-12-25 02:52:46 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardado.php"
+[Method: POST, Route: guardado]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardado.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardado', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(240): view('guardado', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->materias()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 02:53:00 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardado.php"
+[Method: POST, Route: guardado]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardado.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardado', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(240): view('guardado', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->materias()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 02:53:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardado.php"
+[Method: POST, Route: guardado]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardado.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardado', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(240): view('guardado', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->materias()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 02:53:57 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardado.php"
+[Method: POST, Route: guardado]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardado.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardado', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(240): view('guardado', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->materias()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 02:54:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardado.php"
+[Method: POST, Route: guardado]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardado.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardado', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(240): view('guardado', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->materias()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 02:54:44 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardado.php"
+[Method: POST, Route: guardado]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardado.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardado', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(240): view('guardado', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->materias()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 02:54:49 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardado.php"
+[Method: POST, Route: guardado]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardado.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardado', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(240): view('guardado', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->materias()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 02:57:23 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardado.php"
+[Method: POST, Route: guardado]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardado.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardado', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(240): view('guardado', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->materias()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 03:16:05 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "materias_view.php"
+[Method: GET, Route: materias]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('materias_view.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('materias_view', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(240): view('materias_view', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->materia()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 21:13:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "vistas-biblioteca/guardado.php"
+[Method: GET, Route: guardar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('vistas-biblioteca/guardado.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/guardado', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(150): view('vistas-biblioteca/guardado', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->guardar()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:19:32 --> ParseError: Unclosed '{' on line 7
+[Method: GET, Route: guardar]
+in APPPATH\Controllers\Cbiblioteca.php on line 204.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Cbiblioteca')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Cbiblioteca')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Cbiblioteca', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:21:48 --> ErrorException: Undefined variable $message
+[Method: GET, Route: guardar]
+in APPPATH\Views\vistas-biblioteca\guardar.php on line 24.
+ 1 APPPATH\Views\vistas-biblioteca\guardar.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\guardar.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\guardar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/guardar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(150): view('vistas-biblioteca/guardar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->guardar()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:27:10 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardar.php"
+[Method: POST, Route: guardar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardar.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(203): view('guardar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selector()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:27:17 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardar.php"
+[Method: POST, Route: guardar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardar.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(203): view('guardar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selector()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:27:29 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardar.php"
+[Method: POST, Route: guardar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardar.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(203): view('guardar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selector()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:27:34 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardar.php"
+[Method: POST, Route: guardar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardar.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(203): view('guardar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selector()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:30:15 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardar.php"
+[Method: POST, Route: guarda]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardar.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(203): view('guardar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selector()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:31:16 --> ErrorException: Undefined variable $header
+[Method: POST, Route: guarda]
+in APPPATH\Views\vistas-biblioteca\guardar.php on line 1.
+ 1 APPPATH\Views\vistas-biblioteca\guardar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $header', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\guardar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\guardar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/guardar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(203): view('vistas-biblioteca/guardar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selector()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:48:17 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardar.php"
+[Method: POST, Route: guardar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardar.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(200): view('guardar')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selector()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:48:26 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "guardar.php"
+[Method: POST, Route: guardar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('guardar.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('guardar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(200): view('guardar')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selector()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:49:20 --> ErrorException: Undefined variable $header
+[Method: POST, Route: guardar]
+in APPPATH\Views\vistas-biblioteca\guardar.php on line 1.
+ 1 APPPATH\Views\vistas-biblioteca\guardar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $header', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\guardar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\guardar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/guardar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(200): view('vistas-biblioteca/guardar')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selector()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:57:59 --> ParseError: syntax error, unexpected token "}", expecting ";"
+[Method: GET, Route: selectores]
+in APPPATH\Controllers\Cbiblioteca.php on line 204.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Cbiblioteca')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Cbiblioteca')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Cbiblioteca', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-25 23:58:15 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "selectores.php"
+[Method: GET, Route: selectores]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('selectores.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('selectores', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(203): view('selectores')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selector()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

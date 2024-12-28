@@ -20,6 +20,7 @@
                 <div class="form-group">
                     <label for="nombre"></label>
                     <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre" value="<?= old("nombre") ?>">
+                    
                     <?php if (session("errores.nombre")) : ?>
                         <div class="text-danger">
                             <?= session("errores.nombre") ?>
@@ -30,6 +31,7 @@
                 <div class="form-group">
                     <label for="apellido"></label>
                     <input id="apellido" class="form-control" type="text" name="apellido" placeholder="Apellido" value="<?= old("apellido") ?>">
+                    
                     <?php if (session("errores.apellido")) : ?>
                         <div class="text-danger">
                             <?= session("errores.apellido") ?>
@@ -62,6 +64,7 @@
                 <div class="form-group">
                     <label for="contraseña2"></label>
                     <input id="contraseña2" class="form-control" type="password" name="contraseña2" placeholder="confirmar contraseña">
+                    
                     <?php if (session("errores.contraseña2")) : ?>
                         <div class="text-danger">
                             <?= session("errores.contraseña2") ?>

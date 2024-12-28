@@ -13,4 +13,7 @@ $routes->post('login', 'Cbiblioteca::login');
 $routes->get('inicio', 'Cbiblioteca::inicio');
 $routes->get('inicio_profesores', 'Cbiblioteca::inicio_profesores');
 $routes->get('salir', 'Cbiblioteca::salir');
-$routes->get('guardado', 'Cbiblioteca::guardado');
+$routes->get('guardar', 'Cbiblioteca::guardar');
+$routes->post('guardado', 'Cbiblioteca::guardado');
+$routes->match(['get', 'post'], 'guardar', 'Cbiblioteca::selector');
+$routes->get('listar', 'Cbiblioteca::listar');

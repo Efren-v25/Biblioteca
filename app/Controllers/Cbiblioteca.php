@@ -4,6 +4,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\RegistroLogin;
 use App\Models\Libros;
+use App\Models\Etiquetas;
 class Cbiblioteca extends Controller{
 
 //funcion para mostrar el login
@@ -142,21 +143,50 @@ class Cbiblioteca extends Controller{
         return $this->response->redirect(site_url("/login"));
     }
 
+//funcion para el selector dinamico de carreras
+    public function selector(){
+        $session = session(); 
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['checkbox_inf'])) {
+            $informatica = $this->request->getPost('checkbox_inf');
+            $session->set('informatica', $informatica);
+            }
+        else if (!isset($_POST['checkbox_inf'])){
+            $informatica = "desactivado"; 
+            $session->set('informatica', $informatica);}
+            
+            if (isset($_POST['checkbox_mar'])) {
+                $maritima = $this->request->getPost('checkbox_mar');
+                $session->set('maritima', $maritima);
+            }
+        else if (!isset($_POST['checkbox_maritima'])){
+            $maritima = "desactivado"; 
+            $session->set('maritima', $maritima);}
+        }
+        $datos["header"] = view("templates/header"); 
+        $datos["footer"] = view("templates/footer");
+        return view('vistas-biblioteca/guardar', $datos);
+    }
+
 //funcion para mostrar el guardado de libros/archivos
-    public function guardado(){
+    public function guardar(){
         $datos["header"] = view("templates/header"); 
         $datos["footer"] = view("templates/footer"); 
 
-        return view("vistas-biblioteca/guardado", $datos); 
+        return view("vistas-biblioteca/guardar", $datos); 
     }
 
+
 //funcion para guardar libros/archivos
-    public function guardar(){
-        $guardar = new Libros(); 
+    public function guardado(){
+        $guardar = new Libros();
+        $buscar = new Etiquetas();
+        $session = session();
         //validaciones
         $validation = $this->validate([
             "titulo" => [
-                "rules" => "required|min_length[3]|is_unique[.titulo]",
+                "rules" => "required|min_length[3]|is_unique[libros.titulo]",
                 "errors" => [
                     "required" => "El campo titulo es obligatorio.",
                     "min_length" => "El campo titulo debe tener al menos 3 caracteres.",
@@ -176,14 +206,88 @@ class Cbiblioteca extends Controller{
                     "uploaded" => "Necesita subir un archivo.",
                     "mime_in" => "El archivo debe estar en formato PDF."
                 ]
+            ],
+            "semestre" => [
+                "rules" => "required",
+                "errors" => [
+            "required" => "Debe seleccionar un semestre."
+        ]
             ]
-        ]);
+    ]);
+        //validar el checkbox dinamico
+        $checkboxError = false;
+        if (session("informatica") == 'desactivado' && session("maritima") == 'desactivado'){
+            $checkboxError = 'Debe seleccionar al menos una carrera.';
+        }
 
-        //obtener los errores
-        if (!$validation) {
+        //procesar errores
+        if (!$validation || $checkboxError) {
+            $errors = $this->validator->getErrors(); //obtén los errores actuales
+            if ($checkboxError) {
+                $errors['checkbox'] = $checkboxError; //añadir error personalizado
+            }
             $session = session();
-            $session->setFlashdata("errores", $this->validator->getErrors()); // Obtiene todos los errores
+            $session->setFlashdata("errores", $errors);
+            
             return redirect()->back()->withInput();
         }
+
+        //verificar si se recibio el archivo
+        if ($archivo = $this->request->getFile("archivo")) {
+            $nombreOriginal = $archivo->getName(); //bbtiene el nombre original del archivo
+            $archivo->move("../writable/uploads/archivos", $nombreOriginal); //mover el archivo
+        
+            if ($portada = $this->request->getFile("portada")) {
+                $nuevoNombrePortada = $portada->getRandomName(); //asigna un nombre random a la foto
+                $portada->move("../writable/uploads/portadas", $nuevoNombrePortada); //mover la foto
+            } else {
+                $nuevoNombrePortada = null;
+            } 
+
+            //verificar la carrera para ingresarla a la bd
+            if (session("informatica") == 'inf'){
+                $info = "informatica";
+            }else{
+                $info = "no";}
+            if (session("maritima") == 'mar'){
+                $mari = "maritima";
+            }else{
+                $mari = "no";}
+
+            //obtener el nombre y apellido del usuario
+            $nombre = $session->get("nombre");
+            $apellido = $session->get("apellido");
+            $autor = $nombre . " " . $apellido;
+
+            //recibir los datos
+            $datos=[
+                "titulo"=> $this->request->getVar("titulo"),
+                "portada"=> $nuevoNombrePortada,
+                "archivo"=> $nombreOriginal,
+                "autor"=> $autor
+            ];
+
+            $idLibro = $guardar->insert($datos, true); //insertarlos a la tabla libros
+
+            //recibir los datos
+            $tags=[
+                "carrera_inf"=> $info,
+                "carrera_mar"=> $mari,
+                "materia"=> $this->request->getPost("materia"),
+                "semestre"=> $this->request->getPost("semestre"),
+                'id_libro' => $idLibro
+            ];
+
+        $buscar->insert($tags); //insertarlos a la tabla etiquetas
+        }
+        return $this->response->redirect(site_url("/listar")); //redirigir a la vista de inicio
+    }
+
+//funcion para mostrar la vista listar
+    public function listar(){
+        $datos["header"] = view("templates/header"); //agregar el header
+        $datos["footer"] = view("templates/footer"); //agregar el footer
+
+        return view("vistas-biblioteca/listar", $datos); //mostrar la vista + header y footer
     }
 }  
