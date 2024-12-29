@@ -12,7 +12,7 @@
             height: 200px; /* Ajusta el alto según sea necesario */
         }
 </style>
-
+<?php if (!empty($libros)): ?>
 <br><div class="container mt-5">
     <div class="row">
 <?php foreach($libros as $libro): ?>
@@ -29,7 +29,10 @@
             </div>
 <?php endforeach; ?>
     </div>
-</div>
+</div><br>
+<?php else: ?>
+    <br><h3>No hay libros para mostrar aun.</h3>
+<?php endif; ?>
 
 <?php echo $footer; ?>
 

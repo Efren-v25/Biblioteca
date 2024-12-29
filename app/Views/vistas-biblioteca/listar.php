@@ -7,6 +7,7 @@
                 <th>Portada</th>
                 <th>Carrera</th>
                 <th>Carrera</th>
+                <th>Materia</th>
                 <th>Semestre</th>
                 <th>Acciones</th> 
             </tr>
@@ -26,9 +27,13 @@
             <td><?php echo $etiqueta["materia"] ?></td>
             <td><?php echo $etiqueta["semestre"] ?></td>
             <td>
-                <a href="<?php echo base_url("editar/".$libro["id_libro"])?>" class="btn btn-info" type="button">Editar</a>
-
+                <a href="<?php echo base_url("editar/".$libro["id_libro"])?>" class="btn btn-primary" type="button">Editar</a>
                 <a href="<?php echo base_url("borrar/".$libro["id_libro"])?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar este empleado?')" type="button">Borrar</a>
+                <?php if ($libro["visible"] == '1') { ?> 
+                    <a href="<?php echo base_url("ocultar/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Ocultar</a> <?php } 
+                    else { ?> 
+                    <a href="<?php echo base_url("mostrar/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Mostrar</a> 
+                <?php } ?> 
             </td>
         </tr>
         <?php endif; ?>

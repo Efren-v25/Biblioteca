@@ -861,3 +861,329 @@ in APPPATH\Controllers\Cbiblioteca.php on line 17.
  5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-12-28 18:23:41 --> mysqli_sql_exception: Unknown column 'id_libros' in 'where clause' in C:\xampp\htdocs\biblioteca\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\biblioteca\system\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `li...', 0)
+#1 C:\xampp\htdocs\biblioteca\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `li...')
+#2 C:\xampp\htdocs\biblioteca\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `li...')
+#3 C:\xampp\htdocs\biblioteca\system\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `li...', Array, false)
+#4 C:\xampp\htdocs\biblioteca\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\biblioteca\system\BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\biblioteca\app\Controllers\Cbiblioteca.php(326): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\biblioteca\system\CodeIgniter.php(933): App\Controllers\Cbiblioteca->borrar('2')
+#8 C:\xampp\htdocs\biblioteca\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+#9 C:\xampp\htdocs\biblioteca\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\biblioteca\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\biblioteca\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\biblioteca\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-12-28 18:23:41 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'id_libros' in 'where clause'
+[Method: GET, Route: borrar/2]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `libros`
+WHERE `id_libro` = :id_libro:
+AND `id_libros` IN :id_libros:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Cbiblioteca.php(326): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->borrar('2')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 18:23:41 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'id_libros' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `libros`
+WHERE `id_libro` = \'2\'
+AND `id_libros` IN (\'2\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `libros`
+WHERE `id_libro` = \'2\'
+AND `id_libros` IN (\'2\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `libros`
+WHERE `id_libro` = :id_libro:
+AND `id_libros` IN :id_libros:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Cbiblioteca.php(326): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->borrar('2')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 18:23:41 --> [Caused by] mysqli_sql_exception: Unknown column 'id_libros' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `libros`
+WHERE `id_libro` = \'2\'
+AND `id_libros` IN (\'2\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `libros`
+WHERE `id_libro` = \'2\'
+AND `id_libros` IN (\'2\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `libros`
+WHERE `id_libro` = \'2\'
+AND `id_libros` IN (\'2\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `libros`
+WHERE `id_libro` = :id_libro:
+AND `id_libros` IN :id_libros:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Cbiblioteca.php(326): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->borrar('2')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-12-28 18:28:07 --> mysqli_sql_exception: Unknown column 'id_libros' in 'where clause' in C:\xampp\htdocs\biblioteca\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\biblioteca\system\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `li...', 0)
+#1 C:\xampp\htdocs\biblioteca\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `li...')
+#2 C:\xampp\htdocs\biblioteca\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `li...')
+#3 C:\xampp\htdocs\biblioteca\system\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `li...', Array, false)
+#4 C:\xampp\htdocs\biblioteca\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\biblioteca\system\BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\biblioteca\app\Controllers\Cbiblioteca.php(326): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\biblioteca\system\CodeIgniter.php(933): App\Controllers\Cbiblioteca->borrar('2')
+#8 C:\xampp\htdocs\biblioteca\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+#9 C:\xampp\htdocs\biblioteca\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\biblioteca\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\biblioteca\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\biblioteca\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-12-28 18:28:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'id_libros' in 'where clause'
+[Method: GET, Route: borrar/2]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `libros`
+WHERE `id_libro` = :id_libro:
+AND `id_libros` IN :id_libros:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Cbiblioteca.php(326): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->borrar('2')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 18:28:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'id_libros' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `libros`
+WHERE `id_libro` = \'2\'
+AND `id_libros` IN (\'2\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `libros`
+WHERE `id_libro` = \'2\'
+AND `id_libros` IN (\'2\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `libros`
+WHERE `id_libro` = :id_libro:
+AND `id_libros` IN :id_libros:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Cbiblioteca.php(326): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->borrar('2')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 18:28:07 --> [Caused by] mysqli_sql_exception: Unknown column 'id_libros' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `libros`
+WHERE `id_libro` = \'2\'
+AND `id_libros` IN (\'2\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `libros`
+WHERE `id_libro` = \'2\'
+AND `id_libros` IN (\'2\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `libros`
+WHERE `id_libro` = \'2\'
+AND `id_libros` IN (\'2\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `libros`
+WHERE `id_libro` = :id_libro:
+AND `id_libros` IN :id_libros:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Cbiblioteca.php(326): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->borrar('2')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 20:24:48 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "template/header.php"
+[Method: GET, Route: editar/1]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('template/header.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('template/header', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(334): view('template/header')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 20:25:11 --> ErrorException: Undefined variable $libro
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 32.
+ 1 APPPATH\Views\vistas-biblioteca\editar.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $libro', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php', 32)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(337): view('vistas-biblioteca/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 20:30:09 --> ErrorException: Undefined array key "carrera_inf"
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 15.
+ 1 APPPATH\Views\vistas-biblioteca\editar.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "carrera_inf"', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php', 15)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(337): view('vistas-biblioteca/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 21:39:39 --> ParseError: syntax error, unexpected variable "$buscar"
+[Method: GET, Route: editar/1]
+in APPPATH\Controllers\Cbiblioteca.php on line 452.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Cbiblioteca')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Cbiblioteca')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Cbiblioteca', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 21:40:05 --> ParseError: syntax error, unexpected token "return", expecting "function" or "const"
+[Method: GET, Route: editar/1]
+in APPPATH\Controllers\Cbiblioteca.php on line 455.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Cbiblioteca')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Cbiblioteca')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Cbiblioteca', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 23:41:22 --> ErrorException: Undefined variable $id
+[Method: POST, Route: editar]
+in APPPATH\Controllers\Cbiblioteca.php on line 362.
+ 1 APPPATH\Controllers\Cbiblioteca.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id', 'C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selectorActualizar()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 23:42:07 --> ErrorException: Undefined variable $id
+[Method: POST, Route: editar]
+in APPPATH\Controllers\Cbiblioteca.php on line 362.
+ 1 APPPATH\Controllers\Cbiblioteca.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id', 'C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selectorActualizar()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 23:42:09 --> ErrorException: Undefined variable $id
+[Method: POST, Route: editar]
+in APPPATH\Controllers\Cbiblioteca.php on line 362.
+ 1 APPPATH\Controllers\Cbiblioteca.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id', 'C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selectorActualizar()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 23:50:10 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 14.
+ 1 APPPATH\Views\vistas-biblioteca\editar.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php', 14)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(366): view('vistas-biblioteca/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selectorActualizar()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-12-28 23:53:50 --> mysqli_sql_exception: Unknown column 'etiquetas.id_etiqueta' in 'where clause' in C:\xampp\htdocs\biblioteca\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\biblioteca\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `etiquet...', 0)
+#1 C:\xampp\htdocs\biblioteca\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `etiquet...')
+#2 C:\xampp\htdocs\biblioteca\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `etiquet...')
+#3 C:\xampp\htdocs\biblioteca\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `etiquet...', Array, false)
+#4 C:\xampp\htdocs\biblioteca\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\biblioteca\system\BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\biblioteca\system\Model.php(865): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\biblioteca\app\Controllers\Cbiblioteca.php(443): CodeIgniter\Model->update('1', Array)
+#8 C:\xampp\htdocs\biblioteca\system\CodeIgniter.php(933): App\Controllers\Cbiblioteca->actualizar()
+#9 C:\xampp\htdocs\biblioteca\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+#10 C:\xampp\htdocs\biblioteca\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\biblioteca\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\biblioteca\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\biblioteca\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-12-28 23:53:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'etiquetas.id_etiqueta' in 'where clause'
+[Method: POST, Route: actualizar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `etiquetas` SET `materia` = :materia:, `semestre` = :semestre:
+WHERE `etiquetas`.`id_etiqueta` IN :etiquetas.id_etiqueta:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Cbiblioteca.php(443): CodeIgniter\Model->update('1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->actualizar()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 23:53:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'etiquetas.id_etiqueta' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `etiquetas` SET `materia` = \'algebra-lineal\', `semestre` = \'VI\'
+WHERE `etiquetas`.`id_etiqueta` IN (\'1\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `etiquetas` SET `materia` = \'algebra-lineal\', `semestre` = \'VI\'
+WHERE `etiquetas`.`id_etiqueta` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `etiquetas` SET `materia` = :materia:, `semestre` = :semestre:
+WHERE `etiquetas`.`id_etiqueta` IN :etiquetas.id_etiqueta:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Cbiblioteca.php(443): CodeIgniter\Model->update('1', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->actualizar()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-28 23:53:50 --> [Caused by] mysqli_sql_exception: Unknown column 'etiquetas.id_etiqueta' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `etiquetas` SET `materia` = \'algebra-lineal\', `semestre` = \'VI\'
+WHERE `etiquetas`.`id_etiqueta` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `etiquetas` SET `materia` = \'algebra-lineal\', `semestre` = \'VI\'
+WHERE `etiquetas`.`id_etiqueta` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `etiquetas` SET `materia` = \'algebra-lineal\', `semestre` = \'VI\'
+WHERE `etiquetas`.`id_etiqueta` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `etiquetas` SET `materia` = :materia:, `semestre` = :semestre:
+WHERE `etiquetas`.`id_etiqueta` IN :etiquetas.id_etiqueta:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Cbiblioteca.php(443): CodeIgniter\Model->update('1', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->actualizar()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

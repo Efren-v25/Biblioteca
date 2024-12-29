@@ -1,5 +1,5 @@
 
-<?php if (session("informatica") == 'inf' && session("maritima") == 'desactivado'){ ?>
+<?php if (session("informatica") == 'informatica' && session("maritima") == 'desactivado'){ ?>
 <label for="materias">Materias de Informatica:</label><br>
     <select id="materia" name="materia" required>
         <option value="" disabled selected>-- Seleccionar --</option>
@@ -85,7 +85,7 @@
 <?php } ?>
 
 
-<?php if (session("maritima") == 'mar' && session("informatica") == 'desactivado' ){ ?>
+<?php if (session("maritima") == 'maritima' && session("informatica") == 'desactivado' ){ ?>
 <label for="materias">Materias de Maritima:</label><br>
     <select id="materia" name="materia" required>
         <option value="" disabled selected>-- Seleccionar --</option>
@@ -168,14 +168,13 @@
     </select>
 <?php } ?>
 
-<?php if (session("maritima") == 'mar' && session("informatica") == 'inf' ){ ?>
+<?php if (session("maritima") == 'maritima' && session("informatica") == 'informatica' ){ ?>
 <label for="materias-comunes">Materias comunes:</label><br>
     <select id="materia" name="materia" required>
         <option value="" disabled selected>-- Seleccionar --</option>
         <option value="calculo-1">Cálculo I</option>
         <option value="calculo-2">Cálculo II</option>
         <option value="calculo-3">Cálculo III</option>
-        <option value="calculo-4">Cálculo IV</option>
         <option value="estadistica-probabilidad">Estadística y Probabilidad</option>
         <option value="fisica-1">Física I</option>
         <option value="fisica-2">Física II</option>
@@ -212,9 +211,9 @@
         <option value="IX">IX</option>
         <option value="X">X</option>
     </select>
-    <br><?php if (session("errores.semestre")) : ?>
-                                <div class="text-danger"><?= session("errores.semestre") ?></div>
-                            <?php endif; ?>
+<br><?php if (session("errores.semestre")) : ?>
+        <div class="text-danger"><?= session("errores.semestre") ?></div>
+    <?php endif; ?>
 
 
 

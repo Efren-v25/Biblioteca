@@ -1,0 +1,467 @@
+CRITICAL - 2024-12-29 00:06:12 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+[Method: POST, Route: actualizar]
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 142.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(142): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Cbiblioteca.php(415): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/archivos/', '')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->actualizar()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 01:11:05 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+[Method: POST, Route: actualizar]
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 142.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(142): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Cbiblioteca.php(415): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/archivos/', '')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->actualizar()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 01:17:35 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+[Method: POST, Route: actualizar]
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 142.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(142): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Cbiblioteca.php(432): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/portadas/', '1735435055_c3b95021b274a31c5b03')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->actualizar()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 01:18:13 --> CodeIgniter\HTTP\Exceptions\HTTPException: The original file is not a valid file.
+[Method: POST, Route: actualizar]
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 142.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(142): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Cbiblioteca.php(432): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/portadas/', '1735435093_154e1e67d59511d84fca')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->actualizar()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 02:04:26 --> ParseError: syntax error, unexpected token "echo"
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 18.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(337): view('vistas-biblioteca/editar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 02:05:00 --> ErrorException: Undefined array key "carrera_inf"
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 18.
+ 1 APPPATH\Views\vistas-biblioteca\editar.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "carrera_inf"', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php', 18)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(337): view('vistas-biblioteca/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 02:06:30 --> ErrorException: Undefined array key "carrera_inf"
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 18.
+ 1 APPPATH\Views\vistas-biblioteca\editar.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "carrera_inf"', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php', 18)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(339): view('vistas-biblioteca/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 02:07:07 --> ErrorException: Undefined array key "carrera_inf"
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 18.
+ 1 APPPATH\Views\vistas-biblioteca\editar.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "carrera_inf"', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php', 18)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(340): view('vistas-biblioteca/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 02:08:54 --> ErrorException: Undefined array key "carrera_inf"
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 11.
+ 1 APPPATH\Views\vistas-biblioteca\editar.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "carrera_inf"', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(340): view('vistas-biblioteca/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 02:10:09 --> ErrorException: Undefined array key "carrera_inf"
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 11.
+ 1 APPPATH\Views\vistas-biblioteca\editar.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "carrera_inf"', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(340): view('vistas-biblioteca/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 02:44:02 --> ErrorException: Undefined variable $etiqueta
+[Method: GET, Route: guardar]
+in APPPATH\Views\vistas-biblioteca\selectores.php on line 11.
+ 1 APPPATH\Views\vistas-biblioteca\selectores.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $etiqueta', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\selectores.php', 11)
+ 2 APPPATH\Views\vistas-biblioteca\guardar.php(32): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\selectores.php')
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\guardar.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/guardar', [], true)
+ 6 APPPATH\Controllers\Cbiblioteca.php(182): view('vistas-biblioteca/guardar', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->guardar()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 03:19:25 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "vistas-biblioteca/editar/$id.php"
+[Method: POST, Route: editar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('vistas-biblioteca/editar/$id.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar/$id', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(368): view('vistas-biblioteca/editar/$id', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selectorEditar()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 03:21:03 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "vistas-biblioteca/editar/1.php"
+[Method: POST, Route: editar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('vistas-biblioteca/editar/1.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar/1', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(368): view('vistas-biblioteca/editar/1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selectorEditar()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 03:21:12 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "vistas-biblioteca/editar/1.php"
+[Method: POST, Route: editar]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('vistas-biblioteca/editar/1.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar/1', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(368): view('vistas-biblioteca/editar/1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->selectorEditar()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 03:26:57 --> ParseError: syntax error, unexpected token "}", expecting ";"
+[Method: POST, Route: editar]
+in APPPATH\Controllers\Cbiblioteca.php on line 368.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Cbiblioteca')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Cbiblioteca')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Cbiblioteca', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 03:43:31 --> ParseError: syntax error, unexpected token "echo"
+[Method: GET, Route: editar/4]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 19.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(340): view('vistas-biblioteca/editar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('4')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 04:52:54 --> ErrorException: Undefined variable $info
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 20.
+ 1 APPPATH\Views\vistas-biblioteca\editar.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $info', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php', 20)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(340): view('vistas-biblioteca/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 05:48:25 --> ParseError: Unclosed '{' on line 8
+[Method: GET, Route: inicio_profesores]
+in APPPATH\Controllers\Cbiblioteca.php on line 498.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Cbiblioteca')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Cbiblioteca')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Cbiblioteca', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 05:49:00 --> Error: Call to a member function update() on array
+[Method: GET, Route: ocultar/1]
+in APPPATH\Controllers\Cbiblioteca.php on line 493.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->ocultar('1')
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 05:51:05 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: ocultar/1]
+in SYSTEMPATH\BaseModel.php on line 1011.
+ 1 SYSTEMPATH\BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Cbiblioteca.php(492): CodeIgniter\Model->update('1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->ocultar('1')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 05:54:08 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: ocultar/1]
+in SYSTEMPATH\BaseModel.php on line 1011.
+ 1 SYSTEMPATH\BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Cbiblioteca.php(492): CodeIgniter\Model->update('1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->ocultar('1')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 05:54:30 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: ocultar/9]
+in SYSTEMPATH\BaseModel.php on line 1011.
+ 1 SYSTEMPATH\BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Cbiblioteca.php(492): CodeIgniter\Model->update('9', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->ocultar('9')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 05:54:55 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: ocultar/4]
+in SYSTEMPATH\BaseModel.php on line 1011.
+ 1 SYSTEMPATH\BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Cbiblioteca.php(492): CodeIgniter\Model->update('4', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->ocultar('4')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 05:55:13 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: ocultar/4]
+in SYSTEMPATH\BaseModel.php on line 1011.
+ 1 SYSTEMPATH\BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Cbiblioteca.php(492): CodeIgniter\Model->update('4', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->ocultar('4')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 06:05:01 --> ParseError: syntax error, unexpected token "endif"
+[Method: GET, Route: listar]
+in APPPATH\Views\vistas-biblioteca\listar.php on line 35.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/listar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(305): view('vistas-biblioteca/listar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->listar()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 06:05:42 --> ParseError: syntax error, unexpected token "endforeach"
+[Method: GET, Route: listar]
+in APPPATH\Views\vistas-biblioteca\listar.php on line 36.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/listar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(305): view('vistas-biblioteca/listar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->listar()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 06:09:23 --> ParseError: syntax error, unexpected token "<"
+[Method: GET, Route: listar]
+in APPPATH\Views\vistas-biblioteca\listar.php on line 32.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/listar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(305): view('vistas-biblioteca/listar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->listar()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 06:10:37 --> ParseError: syntax error, unexpected variable "$libro", expecting "("
+[Method: GET, Route: listar]
+in APPPATH\Views\vistas-biblioteca\listar.php on line 32.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/listar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(305): view('vistas-biblioteca/listar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->listar()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 06:10:59 --> ParseError: syntax error, unexpected token "}"
+[Method: GET, Route: listar]
+in APPPATH\Views\vistas-biblioteca\listar.php on line 32.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/listar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(305): view('vistas-biblioteca/listar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->listar()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 06:16:23 --> ParseError: Unmatched '}'
+[Method: GET, Route: listar]
+in APPPATH\Controllers\Cbiblioteca.php on line 507.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Cbiblioteca')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Cbiblioteca')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Cbiblioteca', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 06:30:19 --> ParseError: syntax error, unexpected token "?"
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 19.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(340): view('vistas-biblioteca/editar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 06:53:22 --> ErrorException: Undefined variable $session
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 2.
+ 1 APPPATH\Views\vistas-biblioteca\editar.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $session', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php', 2)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(340): view('vistas-biblioteca/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 07:34:06 --> ParseError: syntax error, unexpected variable "$session"
+[Method: GET, Route: listar]
+in APPPATH\Controllers\Cbiblioteca.php on line 349.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Cbiblioteca')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Cbiblioteca')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Cbiblioteca', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 07:34:07 --> ParseError: syntax error, unexpected variable "$session"
+[Method: GET, Route: listar]
+in APPPATH\Controllers\Cbiblioteca.php on line 349.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Cbiblioteca')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Cbiblioteca')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Cbiblioteca', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 07:45:49 --> ParseError: Unmatched ')'
+[Method: GET, Route: editar/1]
+in APPPATH\Views\vistas-biblioteca\editar.php on line 19.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 3 APPPATH\Controllers\Cbiblioteca.php(340): view('vistas-biblioteca/editar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('1')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 08:12:37 --> ParseError: syntax error, unexpected token ";"
+[Method: GET, Route: editar/9]
+in APPPATH\Views\vistas-biblioteca\selectoresEditar.php on line 169.
+ 1 SYSTEMPATH\View\View.php(234): include()
+ 2 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/editar', [], true)
+ 4 APPPATH\Controllers\Cbiblioteca.php(343): view('vistas-biblioteca/editar', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->editar('9')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 08:19:07 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: listar]
+in APPPATH\Views\vistas-biblioteca\listar.php on line 2.
+ 1 APPPATH\Views\vistas-biblioteca\listar.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\listar.php', 2)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\biblioteca\\app\\Views\\vistas-biblioteca\\listar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('vistas-biblioteca/listar', [], true)
+ 5 APPPATH\Controllers\Cbiblioteca.php(308): view('vistas-biblioteca/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->listar()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-29 08:21:51 --> ErrorException: Undefined variable $session
+[Method: GET, Route: listar]
+in APPPATH\Controllers\Cbiblioteca.php on line 310.
+ 1 APPPATH\Controllers\Cbiblioteca.php(310): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $session', 'C:\\xampp\\htdocs\\biblioteca\\app\\Controllers\\Cbiblioteca.php', 310)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Cbiblioteca->listar()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cbiblioteca))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

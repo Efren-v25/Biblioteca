@@ -1,1 +1,0 @@
-__ci_last_regenerate|i:1734995191;_ci_previous_url|s:50:"http://localhost/biblioteca/public/index.php/login";mensaje|s:41:"El correo o la contraseña es incorrecto.";__ci_vars|a:2:{s:7:"mensaje";s:3:"old";s:13:"_ci_old_input";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:2:{s:6:"correo";s:0:"";s:11:"contraseña";s:0:"";}}

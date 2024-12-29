@@ -29,6 +29,6 @@
             </div>
 <?php endforeach; ?>
     </div>
-</div>
+</div><br>
 
 <?php echo $footer; ?>
