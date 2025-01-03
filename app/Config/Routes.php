@@ -14,3 +14,5 @@ $routes->get('inicio', 'Cbiblioteca::inicio');
 $routes->get('inicio_profesores', 'Cbiblioteca::inicio_profesores');
 $routes->get('salir', 'Cbiblioteca::salir');
 $routes->get('guardado', 'Cbiblioteca::guardado');
+
+$routes->post('resultados','Cbiblioteca::buscador'); //ruta del buscador(el de la navbar)

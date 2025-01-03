@@ -4,6 +4,8 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\RegistroLogin;
 use App\Models\Libros;
+use App\Models\LibrosModel;
+
 class Cbiblioteca extends Controller{
 
 //funcion para mostrar el login
@@ -152,7 +154,7 @@ class Cbiblioteca extends Controller{
 
 //funcion para guardar libros/archivos
     public function guardar(){
-        $guardar = new Libros(); 
+        $guardar = new LibrosModel(); 
         //validaciones
         $validation = $this->validate([
             "titulo" => [
@@ -185,5 +187,20 @@ class Cbiblioteca extends Controller{
             $session->setFlashdata("errores", $this->validator->getErrors()); // Obtiene todos los errores
             return redirect()->back()->withInput();
         }
+    }
+//funcion para buscar libros
+    public function buscador()
+    {
+        $librosModel = new LibrosModel();
+        $resultados = $librosModel->select("*")
+                                  ->like('titulo',$_POST['busqueda'])
+                                  ->findAll();
+
+        $data = [
+            'header'=>view('templates/header'),
+            'footer'=>view('templates/footer'),
+            'resultados'=>$resultados
+        ];
+        return view('buscador/resultados',$data);
     }
 }  
