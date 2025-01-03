@@ -4,8 +4,12 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\RegistroLogin;
 use App\Models\Libros;
+<<<<<<< HEAD
 use App\Models\LibrosModel;
 
+=======
+use App\Models\Etiquetas;
+>>>>>>> gheison
 class Cbiblioteca extends Controller{
 
 //funcion para mostrar el login
@@ -15,6 +19,8 @@ class Cbiblioteca extends Controller{
 
 //funcion para mostrar el inicio de estudiantes
     public function inicio(){
+        $mostrar = new Libros();
+        $datos["libros"] = $mostrar->where('visible', 1)->orderBy("fecha_subida","ASC")->findAll();
         $datos["header"] = view("templates/header"); //agregar el header
         $datos["footer"] = view("templates/footer"); //agregar el footer
 
@@ -23,6 +29,8 @@ class Cbiblioteca extends Controller{
 
 //funcion para mostrar el inicio de profesores
     public function inicio_profesores(){
+        $mostrar = new Libros();
+        $datos["libros"] = $mostrar->where('visible', 1)->orderBy("fecha_subida","ASC")->findAll();
         $datos["header"] = view("templates/header"); 
         $datos["footer"] = view("templates/footer");
 
@@ -116,6 +124,7 @@ class Cbiblioteca extends Controller{
         if(count($datosUsuario) > 0 && password_verify($password, $datosUsuario[0]["contraseña"])){
             $data = [
                 "logged" => true,
+                "id_usuario" => $datosUsuario[0]["id_usuario"],
                 "nombre" => $datosUsuario[0]["nombre"],
                 "apellido" => $datosUsuario[0]["apellido"],
                 "code" => $datosUsuario[0]["code"]
@@ -144,21 +153,55 @@ class Cbiblioteca extends Controller{
         return $this->response->redirect(site_url("/login"));
     }
 
+//funcion para el selector dinamico de carreras
+    public function selector(){
+        $session = session(); 
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['checkbox_inf'])) {
+            $informatica = $this->request->getPost('checkbox_inf');
+            $session->set('informatica', $informatica);
+            }
+        else if (!isset($_POST['checkbox_inf'])){
+            $informatica = "desactivado"; 
+            $session->set('informatica', $informatica);}
+            
+            if (isset($_POST['checkbox_mar'])) {
+                $maritima = $this->request->getPost('checkbox_mar');
+                $session->set('maritima', $maritima);
+            }
+        else if (!isset($_POST['checkbox_maritima'])){
+            $maritima = "desactivado"; 
+            $session->set('maritima', $maritima);}
+        }
+        $datos["header"] = view("templates/header"); 
+        $datos["footer"] = view("templates/footer");
+        return view('vistas-biblioteca/guardar', $datos);
+    }
+
 //funcion para mostrar el guardado de libros/archivos
-    public function guardado(){
+    public function guardar(){
         $datos["header"] = view("templates/header"); 
         $datos["footer"] = view("templates/footer"); 
 
-        return view("vistas-biblioteca/guardado", $datos); 
+        return view("vistas-biblioteca/guardar", $datos); 
     }
 
+
 //funcion para guardar libros/archivos
+<<<<<<< HEAD
     public function guardar(){
         $guardar = new LibrosModel(); 
+=======
+    public function guardado(){
+        $guardar = new Libros();
+        $buscar = new Etiquetas();
+        $session = session();
+>>>>>>> gheison
         //validaciones
         $validation = $this->validate([
             "titulo" => [
-                "rules" => "required|min_length[3]|is_unique[.titulo]",
+                "rules" => "required|min_length[3]|is_unique[libros.titulo]",
                 "errors" => [
                     "required" => "El campo titulo es obligatorio.",
                     "min_length" => "El campo titulo debe tener al menos 3 caracteres.",
@@ -178,16 +221,89 @@ class Cbiblioteca extends Controller{
                     "uploaded" => "Necesita subir un archivo.",
                     "mime_in" => "El archivo debe estar en formato PDF."
                 ]
+            ],
+            "semestre" => [
+                "rules" => "required",
+                "errors" => [
+            "required" => "Debe seleccionar un semestre."
+        ]
             ]
-        ]);
+    ]);
+        //validar el checkbox dinamico
+        $checkboxError = false;
+        if (session("informatica") == 'desactivado' && session("maritima") == 'desactivado'){
+            $checkboxError = 'Debe seleccionar al menos una carrera.';
+        }
 
-        //obtener los errores
-        if (!$validation) {
+        //procesar errores
+        if (!$validation || $checkboxError) {
+            $errors = $this->validator->getErrors(); //obtén los errores actuales
+            if ($checkboxError) {
+                $errors['checkbox'] = $checkboxError; //añadir error personalizado
+            }
             $session = session();
-            $session->setFlashdata("errores", $this->validator->getErrors()); // Obtiene todos los errores
+            $session->setFlashdata("errores", $errors);
+            
             return redirect()->back()->withInput();
         }
+
+        //verificar si se recibio el archivo
+        if ($archivo = $this->request->getFile("archivo")) {
+            $nombreOriginal = $archivo->getName(); //bbtiene el nombre original del archivo
+            $archivo->move("../public/uploads/archivos", $nombreOriginal); //mover el archivo
+        
+            if ($portada = $this->request->getFile("portada")) {
+                $nuevoNombrePortada = $portada->getRandomName(); //asigna un nombre random a la foto
+                $portada->move("../public/uploads/portadas", $nuevoNombrePortada); //mover la foto
+            } else {
+                $nuevoNombrePortada = null;
+            } 
+
+            //verificar la carrera para ingresarla a la bd
+            if (session("informatica") == 'informatica'){
+                $info = "informatica";
+            }else{
+                $info = "no";}
+            if (session("maritima") == 'maritima'){
+                $mari = "maritima";
+            }else{
+                $mari = "no";}
+
+            //obtener el nombre y apellido del usuario
+            $nombre = $session->get("nombre");
+            $apellido = $session->get("apellido");
+            $autor = $nombre . " " . $apellido;
+
+            $idUsuario = $session->get('id_usuario');
+
+            //recibir los datos
+            $datos=[
+                "id_usuario"=> $idUsuario,
+                "titulo"=> $this->request->getVar("titulo"),
+                "portada"=> $nuevoNombrePortada,
+                "archivo"=> $nombreOriginal,
+                "autor"=> $autor
+            ];
+
+            $idLibro = $guardar->insert($datos, true); //insertarlos a la tabla libros
+
+            //recibir los datos
+            $tags=[
+                "carrera_inf"=> $info,
+                "carrera_mar"=> $mari,
+                "materia"=> $this->request->getPost("materia"),
+                "semestre"=> $this->request->getPost("semestre"),
+                'id_libro' => $idLibro
+            ];
+
+        $buscar->insert($tags); //insertarlos a la tabla etiquetas
+
+        $session->remove('informatica');
+        $session->remove('maritima');
+        }
+        return $this->response->redirect(site_url("/listar")); //redirigir a la vista de inicio
     }
+<<<<<<< HEAD
 //funcion para buscar libros
     public function buscador()
     {
@@ -204,3 +320,229 @@ class Cbiblioteca extends Controller{
         return view('buscador/resultados',$data);
     }
 }  
+=======
+
+//funcion para mostrar la vista listar
+    public function listar(){
+        $libroModel = new Libros();
+        $etiqueta = new etiquetas();
+        $session = session();
+        $idUsuario = session()->get('id_usuario'); // Obtén el ID del usuario actual desde la sesión.
+        
+        $datos["etiquetas"] = $etiqueta->orderBy("id_libro","ASC")->findAll();
+        $datos['libros'] = $libroModel->obtenerPorUsuario($idUsuario);
+        $datos["header"] = view("templates/header"); 
+        $datos["footer"] = view("templates/footer");
+
+        if ($this->request->getGet('clic')) {
+            $session->remove('informatica');
+            $session->remove('maritima');
+        }
+
+        return view("vistas-biblioteca/listar", $datos);
+    }
+
+//funcion para borrar libros
+    public function borrar($id=null){ //recibir el id del libro que le demos click
+        $libro = new libros(); //objeto libro
+        $datoslibro = $libro->where("id_libro",$id)->first(); //comparar el id del libro con el de la bd
+        
+        if($foto=$this->request->getFile("portada")){
+        $rutaPortada = ("../public/uploads/portadas/".$datoslibro["portada"]); //seleccionar la foto basandose en el id del libro
+        unlink($rutaPortada); //borrar la foto
+        $libro->where("id_libro",$id)->delete($id); //borrar libro
+        return $this->response->redirect(site_url("/listar"));
+        }
+        if($foto=$this->request->getFile("archivo")){
+            $rutaArchivo = ("../public/uploads/archivos/".$datoslibro["archivo"]); //seleccionar la foto basandose en el id del libro
+            unlink($rutaArchivo); //borrar la foto
+            $libro->where("id_libro",$id)->delete($id); //borrar libro
+            return $this->response->redirect(site_url("/listar"));
+        }
+
+        $libro->where("id_libro",$id)->delete($id); //borrar libro
+        return $this->response->redirect(site_url("/listar")); //redirigir a la vista de inicio
+    }
+
+//funcion para editar libros
+    public function editar($id=null){
+        $libros = new libros();
+        $etiquetas = new Etiquetas;
+
+        $datos["etiqueta"] = $etiquetas->where("id_libro",$id)->first();
+        $datos["libro"] = $libros->where("id_libro",$id)->first();
+        $datos["header"] = view("templates/header"); 
+        $datos["footer"] = view("templates/footer");
+
+        return view("vistas-biblioteca/editar",$datos);
+    }
+
+//funcion para el selector dinamico de carreras actualizar
+    public function selectorEditar(){
+        $session = session();
+        $guardar = new libros();
+        $id = $this->request->getVar("id_libro");
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['checkbox_inf'])) {
+            $informatica = $this->request->getPost('checkbox_inf');
+            $session->set('informatica', $informatica);
+            }
+        else if (!isset($_POST['checkbox_inf'])){
+            $informatica = "desactivado"; 
+            $session->set('informatica', $informatica);}
+
+            if (isset($_POST['checkbox_mar'])) {
+                $maritima = $this->request->getPost('checkbox_mar');
+                $session->set('maritima', $maritima);
+            }
+        else if (!isset($_POST['checkbox_maritima'])){
+            $maritima = "desactivado"; 
+            $session->set('maritima', $maritima);}
+        }
+        return $this->response->redirect(base_url("/editar/$id"));
+    }   
+
+//funcion para actualizar libros
+    public function actualizar() {
+    $guardar = new libros(); // Modelo para la tabla 'libros'
+    $buscar = new Etiquetas(); // Modelo para la tabla 'etiquetas'
+    $session = session();
+
+    $id = $this->request->getVar("id_libro");
+    if (!$id) {
+        $session->setFlashdata("errores", ["id_libro" => "No se recibió un ID válido para actualizar."]);
+        return redirect()->back()->withInput();
+    }
+
+    // Datos principales para la tabla 'libros'
+    $datosLibro = ["titulo" => $this->request->getVar("titulo")];
+
+    // Validaciones
+    $validation = $this->validate([
+        "titulo" => [
+            "rules" => "required|min_length[3]|is_unique[libros.titulo,id_libro,{$id}]",
+            "errors" => [
+                "required" => "El campo título es obligatorio.",
+                "min_length" => "El título debe tener al menos 3 caracteres.",
+                "is_unique" => "Este título ya está registrado."
+            ]
+        ],
+        "semestre" => [
+            "rules" => "required",
+            "errors" => [
+                "required" => "Debe seleccionar un semestre."
+            ]
+        ]
+    ]);
+
+    // Validación de checkboxes
+    $checkboxError = false;
+        if (session("informatica") == 'desactivado' && session("maritima") == 'desactivado'){
+            $checkboxError = 'Debe seleccionar al menos una carrera.';
+        }
+
+    if (!$validation || $checkboxError) {
+        $errors = $this->validator->getErrors();
+        if ($checkboxError) {
+            $errors['checkbox'] = $checkboxError;
+        }
+        $session->setFlashdata("errores", $errors);
+        return redirect()->back()->withInput();
+    }
+
+    // Actualización en la tabla 'libros'
+    $guardar->update($id, $datosLibro);
+
+    $validation = $this->validate([
+        "portada" => [
+            "rules" => "mime_in[portada,image/jpg,image/jpeg,image/png]|max_size[portada,2048]|uploaded[portada]",
+            "errors" => [
+                "mime_in" => "La imagen debe estar en formato jpg, jpeg o png.",
+                "max_size" => "El tamaño de la imagen no debe exceder los 2 MB."
+            ]
+        ],
+        "archivo" => [
+            "rules" => "mime_in[archivo,application/pdf]|uploaded[archivo]",
+            "errors" => [
+                "mime_in" => "El archivo debe estar en formato PDF."
+            ]
+        ]
+    ]);
+
+    // Procesar archivo PDF
+    if($validation){
+    if ($archivo = $this->request->getFile("archivo")) {
+        if ($archivo->isValid() && !$archivo->hasMoved()) {
+            // Procesar el archivo si es válido y no se ha movido aún
+            $datoslibro = $guardar->where("id_libro", $id)->first();
+    
+            $ruta = "../public/uploads/archivos/" . $datoslibro["archivo"];
+            if (file_exists($ruta)) {
+                unlink($ruta); // Eliminar archivo anterior
+            }
+            $nombreOriginal = $archivo->getName(); 
+            $archivo->move("../public/uploads/archivos/", $nombreOriginal); 
+            $datos = ["archivo" => $nombreOriginal];
+            $guardar->update($id, $datos); 
+        }
+    }
+
+    // Procesar portada
+    if ($portada = $this->request->getFile("portada")) {
+        $datosLibro = $guardar->find($id);
+        $rutaPortada = "../public/uploads/portadas/" . $datosLibro["portada"];
+        if (is_file($rutaPortada)) {
+            unlink($rutaPortada);
+        }
+
+        $nombrePortada = $portada->getRandomName();
+        $portada->move("../public/uploads/portadas/", $nombrePortada);
+        $guardar->update($id, ["portada" => $nombrePortada]);
+    }}
+
+    //verificar la carrera para ingresarla a la bd
+    if (session("informatica") == 'informatica'){
+        $info = "informatica";
+    }else{
+        $info = "no";}
+    if (session("maritima") == 'maritima'){
+        $mari = "maritima";
+    }else{
+        $mari = "no";}
+
+    // Actualización en la tabla 'etiquetas'
+    $datosCarrera = [
+        "carrera_inf" => $info,
+        "carrera_mar" => $mari,
+        "materia" => $this->request->getPost("materia"),
+        "semestre" => $this->request->getPost("semestre")
+    ];
+    $buscar->update($id, $datosCarrera);
+
+    $session->remove('informatica');
+    $session->remove('maritima');
+
+    return $this->response->redirect(site_url("/listar"));
+    } 
+
+//funcion para ocultar libros
+    public function ocultar($id=null){ //recibir el id del libro que le demos click
+        $libro = new libros(); //objeto libro
+
+        $libro->update($id, ['visible' => 0]);
+
+    return $this->response->redirect(site_url("/listar"));
+    }
+
+//funcion para mostrar libros
+    public function mostrar($id=null){ //recibir el id del libro que le demos click
+        $libro = new libros(); //objeto libro
+
+        $libro->update($id, ['visible' => 1]);
+
+    return $this->response->redirect(site_url("/listar"));
+    }
+}
+
+>>>>>>> gheison

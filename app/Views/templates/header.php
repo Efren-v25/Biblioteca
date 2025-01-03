@@ -16,11 +16,11 @@
         </li>
 
         <li class="nav-item">
-            <a href="#tab5Id" class="nav-link">Subir archivo</a>
+            <a href="<?php echo base_url("guardar") ?>" class="nav-link">Subir archivo</a>
         </li>
 
         <li class="nav-item">
-            <a href="#tab5Id" class="nav-link">Mis archivos</a>
+            <a href="<?php echo base_url("listar") ?>" class="nav-link">Mis archivos</a>
         </li>
 
         <li class="nav-item">
