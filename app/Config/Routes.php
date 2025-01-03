@@ -23,3 +23,5 @@ $routes->get('editar/(:num)', 'Cbiblioteca::editar/$1');
 $routes->post('actualizar', 'Cbiblioteca::actualizar');
 $routes->get('ocultar/(:num)', 'Cbiblioteca::ocultar/$1');
 $routes->get('mostrar/(:num)', 'Cbiblioteca::mostrar/$1');
+
+$routes->post('resultados','Cbiblioteca::buscador');

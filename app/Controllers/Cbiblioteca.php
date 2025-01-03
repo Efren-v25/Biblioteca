@@ -4,12 +4,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\RegistroLogin;
 use App\Models\Libros;
-<<<<<<< HEAD
-use App\Models\LibrosModel;
-
-=======
 use App\Models\Etiquetas;
->>>>>>> gheison
 class Cbiblioteca extends Controller{
 
 //funcion para mostrar el login
@@ -189,15 +184,10 @@ class Cbiblioteca extends Controller{
 
 
 //funcion para guardar libros/archivos
-<<<<<<< HEAD
-    public function guardar(){
-        $guardar = new LibrosModel(); 
-=======
     public function guardado(){
         $guardar = new Libros();
         $buscar = new Etiquetas();
         $session = session();
->>>>>>> gheison
         //validaciones
         $validation = $this->validate([
             "titulo" => [
@@ -303,24 +293,6 @@ class Cbiblioteca extends Controller{
         }
         return $this->response->redirect(site_url("/listar")); //redirigir a la vista de inicio
     }
-<<<<<<< HEAD
-//funcion para buscar libros
-    public function buscador()
-    {
-        $librosModel = new LibrosModel();
-        $resultados = $librosModel->select("*")
-                                  ->like('titulo',$_POST['busqueda'])
-                                  ->findAll();
-
-        $data = [
-            'header'=>view('templates/header'),
-            'footer'=>view('templates/footer'),
-            'resultados'=>$resultados
-        ];
-        return view('buscador/resultados',$data);
-    }
-}  
-=======
 
 //funcion para mostrar la vista listar
     public function listar(){
@@ -543,6 +515,19 @@ class Cbiblioteca extends Controller{
 
     return $this->response->redirect(site_url("/listar"));
     }
+    //funcion del buscador navbar
+    public function buscador()
+    {   
+        $librosModel = new Libros();
+        $resultados = $librosModel->select('*')
+                                 ->like('titulo',$_POST['busqueda'])
+                                 ->findAll();
+        $data = [
+            'header' => view('templates/header'),
+            'footer' => view('templates/footer'),
+            'resultados' => $resultados
+        ];
+        return view('buscador/resultados',$data);
+    }
 }
 
->>>>>>> gheison
