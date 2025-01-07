@@ -124,16 +124,17 @@ class Cbiblioteca extends Controller{
                 "apellido" => $datosUsuario[0]["apellido"],
                 "code" => $datosUsuario[0]["code"]
             ];
-
-            $session = session();
-            $session->set($data);
-        
-        //verificar el tipo de usuario y redirigirlo a donde corresponda
-        if(session("code") == 138062){
-            return $this->response->redirect(site_url("/inicio_profesores"));
-        }else{
-            return $this->response->redirect(site_url("/inicio"));
-        }
+            if($data["code"] == 138062){        //Verifica el codigo del usuario y lo agrega al array de datos de la session
+                $data["profesor"] = true;
+                $session = session();
+                $session->set($data);
+                return $this->response->redirect(site_url("/inicio_profesores"));
+            }else{
+                $data["profesor"] = false;
+                $session = session();
+                $session->set($data);
+                return $this->response->redirect(site_url("/inicio"));
+            }
         }else{
             $session = session();
             $session->setFlashdata("mensaje","El correo o la contraseña es incorrecto.");
