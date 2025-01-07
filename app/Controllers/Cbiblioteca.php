@@ -331,7 +331,6 @@ class Cbiblioteca extends Controller{
 
         $libroModel = new Libros();
         $etiqueta = new etiquetas();
-        $session = session();
         $idUsuario = session()->get('id_usuario'); // Obtén el ID del usuario actual desde la sesión.
         
         $datos["etiquetas"] = $etiqueta->orderBy("id_libro","ASC")->findAll();
