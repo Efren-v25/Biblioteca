@@ -185,6 +185,14 @@ class Cbiblioteca extends Controller{
 
 //funcion para mostrar el guardado de libros/archivos
     public function guardar(){
+        $session = session();
+        if(!$session->get("profesor")){   //
+            $data = [
+                "message" => 'No posee los permisos requeridos para acceder a esta dirección URL'
+            ];
+            return view('errors/html/error_404',$data);
+        }
+
         $datos["header"] = view("templates/header"); 
         $datos["footer"] = view("templates/footer"); 
 
