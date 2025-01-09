@@ -24,13 +24,6 @@ class Cbiblioteca extends Controller{
 
 //funcion para mostrar el inicio de profesores
     public function inicio_profesores(){
-        $session = session();
-        if(!$session->get("profesor")){   //
-            $data = [
-                "message" => 'No posee los permisos requeridos para acceder a esta dirección URL'
-            ];
-            return view('errors/html/error_404',$data);
-        }
 
         $mostrar = new Libros();
         $datos["libros"] = $mostrar->where('visible', 1)->orderBy("fecha_subida","ASC")->findAll();
@@ -185,14 +178,7 @@ class Cbiblioteca extends Controller{
 
 //funcion para mostrar el guardado de libros/archivos
     public function guardar(){
-        $session = session();
-        if(!$session->get("profesor")){   //
-            $data = [
-                "message" => 'No posee los permisos requeridos para acceder a esta dirección URL'
-            ];
-            return view('errors/html/error_404',$data);
-        }
-
+ 
         $datos["header"] = view("templates/header"); 
         $datos["footer"] = view("templates/footer"); 
 
@@ -202,13 +188,6 @@ class Cbiblioteca extends Controller{
 
 //funcion para guardar libros/archivos
     public function guardado(){
-        $session = session();
-        if(!$session->get("profesor")){   //
-            $data = [
-                "message" => 'No posee los permisos requeridos para acceder a esta dirección URL'
-            ];
-            return view('errors/html/error_404',$data);
-        }
 
         $guardar = new Libros();
         $buscar = new Etiquetas();
@@ -241,9 +220,10 @@ class Cbiblioteca extends Controller{
                 "rules" => "required",
                 "errors" => [
             "required" => "Debe seleccionar un semestre."
-        ]
+                ]
             ]
-    ]);
+        ]);
+        
         //validar el checkbox dinamico
         $checkboxError = false;
         if (session("informatica") == 'desactivado' && session("maritima") == 'desactivado'){
@@ -322,12 +302,6 @@ class Cbiblioteca extends Controller{
 //funcion para mostrar la vista listar
     public function listar(){
         $session = session();
-        if(!$session->get("profesor")){   //
-            $data = [
-                "message" => 'No posee los permisos requeridos para acceder a esta dirección URL'
-            ];
-            return view('errors/html/error_404',$data);
-        }
 
         $libroModel = new Libros();
         $etiqueta = new etiquetas();
@@ -348,14 +322,7 @@ class Cbiblioteca extends Controller{
 
 //funcion para borrar libros
     public function borrar($id=null){ //recibir el id del libro que le demos click
-        $session = session();
-        if(!$session->get("profesor")){   //
-            $data = [
-                "message" => 'No posee los permisos requeridos para acceder a esta dirección URL'
-            ];
-            return view('errors/html/error_404',$data);
-        }
-
+    
         $libro = new libros(); //objeto libro
         $datoslibro = $libro->where("id_libro",$id)->first(); //comparar el id del libro con el de la bd
         
@@ -378,14 +345,6 @@ class Cbiblioteca extends Controller{
 
 //funcion para editar libros
     public function editar($id=null){
-        $session = session();
-        if(!$session->get("profesor")){   //
-            $data = [
-                "message" => 'No posee los permisos requeridos para acceder a esta dirección URL'
-            ];
-            return view('errors/html/error_404',$data);
-        }
-
         $libros = new libros();
         $etiquetas = new Etiquetas;
 
@@ -425,14 +384,6 @@ class Cbiblioteca extends Controller{
 
 //funcion para actualizar libros
     public function actualizar() {
-        $session = session();
-        if(!$session->get("profesor")){   //
-            $data = [
-                "message" => 'No posee los permisos requeridos para acceder a esta dirección URL'
-            ];
-            return view('errors/html/error_404',$data);
-        }
-
         $guardar = new libros(); // Modelo para la tabla 'libros'
         $buscar = new Etiquetas(); // Modelo para la tabla 'etiquetas'
         $session = session();
@@ -556,13 +507,6 @@ class Cbiblioteca extends Controller{
 
 //funcion para ocultar libros
     public function ocultar($id=null){ //recibir el id del libro que le demos click
-        $session = session();
-        if(!$session->get("profesor")){   //
-            $data = [
-                "message" => 'No posee los permisos requeridos para acceder a esta dirección URL'
-            ];
-            return view('errors/html/error_404',$data);
-        }
 
         $libro = new libros(); //objeto libro
 

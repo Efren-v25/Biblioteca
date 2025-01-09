@@ -35,6 +35,7 @@ class Filters extends BaseFilters
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
         'auth' => \App\Filters\Autenticador::class,
+        'prof' => \App\Filters\ProfesorFilter::class,
     ];
 
     /**
@@ -70,7 +71,8 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-        'auth' => ['except' => ['login', 'registro', 'registrar', 'public/*']], // Excepciones
+            'auth' => ['except' => ['login', 'registro', 'registrar', 'public/*']], // Excepciones
+            'prof' => ['except' => ['login', 'registro', 'registrar', 'public/*','inicio','salir','resultados']]
         ],
         'after'  => [],
     ];
