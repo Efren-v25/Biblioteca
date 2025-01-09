@@ -8,7 +8,7 @@
     <?php if(!session()->get('profesor')):?>
         <ul class="nav nav-tabs" id="navId">
             <li class="nav-item">
-                <a href="<?= base_url('/')?>" class="nav-link active">Biblioteca</a>
+                <a href="<?= base_url('inicio')?>" class="nav-link active">Biblioteca</a>
             </li>
 
             <li class="nav-item">
@@ -33,7 +33,7 @@
     <?php else:?>
         <ul class="nav nav-tabs" id="navId">
             <li class="nav-item">
-                <a href="<?= base_url('/')?>" class="nav-link active">Biblioteca</a>
+                <a href="<?= base_url('inicio_profesores')?>" class="nav-link active">Biblioteca</a>
             </li>
 
             <li class="nav-item">
