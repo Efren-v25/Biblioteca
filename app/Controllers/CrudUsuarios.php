@@ -4,8 +4,6 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\RegistroLogin;
-use App\Models\Libros;
-use App\Models\Etiquetas;
 
 class CrudUsuarios extends Controller
 {
@@ -82,42 +80,6 @@ class CrudUsuarios extends Controller
             $usuariosModel->insert($datos); //insertar los datos a la bd
         }
         return $this->response->redirect(site_url("/login")); //redirigir a la vista del login en caso de registrarse correctamente
-    }
-
-    public function login() //login
-    {
-        $usuariosModel = new RegistroLogin();
-        $usuario = $this->request->getPost("correo"); //obtener correo del formulario y guardarlo
-        $password = $this->request->getPost("contraseña"); //obtener la contraseña del formulario y guardarla
-
-        $datosUsuario = $usuariosModel->obtenerUsuario(["correo"=> $usuario]); //comparar correo ingresado con el de la bd y guardarlo
-
-
-        //validar si el correo y la contraseña son correctos
-        if(count($datosUsuario) > 0 && password_verify($password, $datosUsuario[0]["contraseña"])){
-            $data = [
-                "logged" => true,
-                "id_usuario" => $datosUsuario[0]["id_usuario"],
-                "nombre" => $datosUsuario[0]["nombre"],
-                "apellido" => $datosUsuario[0]["apellido"],
-                "code" => $datosUsuario[0]["code"]
-            ];
-            if($data["code"] == 138062){        //Verifica el codigo del usuario y lo agrega al array de datos de la session
-                $data["profesor"] = true;
-                $session = session();
-                $session->set($data);
-                return $this->response->redirect(site_url("/inicio_profesores"));
-            }else{
-                $data["profesor"] = false;
-                $session = session();
-                $session->set($data);
-                return $this->response->redirect(site_url("/inicio"));
-            }
-        }else{
-            $session = session();
-            $session->setFlashdata("mensaje","El correo o la contraseña es incorrecto.");
-            return redirect()->back()->withInput();
-        }
     }
 
     /**

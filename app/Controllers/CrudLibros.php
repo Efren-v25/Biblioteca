@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use App\Models\RegistroLogin;
 use App\Models\Libros;
 use App\Models\Etiquetas;
 
@@ -175,7 +174,7 @@ class CrudLibros extends Controller
      *
      * @return ResponseInterface
      */
-    public function edit($id = null)
+    public function edit($id = null) //editar
     {
         $librosModel = new libros();
         $tagsModel = new Etiquetas;
@@ -197,7 +196,7 @@ class CrudLibros extends Controller
      *
      * @return ResponseInterface
      */
-    public function update($id = null)
+    public function update($id = null) //actualizar
     {
         $librosModel = new Libros(); // Modelo para la tabla 'libros'
         $tagsModel = new Etiquetas(); // Modelo para la tabla 'etiquetas'
