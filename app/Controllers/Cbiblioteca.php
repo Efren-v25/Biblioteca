@@ -33,80 +33,6 @@ class Cbiblioteca extends Controller{
         return view("vistas-biblioteca/inicio_profesores", $datos);
     }
 
-//funcion para mostrar el registro
-    public function registro(){
-        
-        return view("vistas-biblioteca/registro-login/registro"); 
-    }
-
-//funcion para registrar usuarios
-    public function registrar(){
-        $registrar = new RegistroLogin(); 
-        //validaciones
-        $validation = $this->validate([
-            "nombre" => [
-                "rules" => "required|min_length[3]",
-                "errors" => [
-                    "required" => "El campo nombre es obligatorio.",
-                    "min_length" => "El campo nombre debe tener al menos 3 caracteres."
-                ]
-            ],
-            "apellido" => [
-                "rules" => "required|min_length[2]",
-                "errors" => [
-                    "required" => "El campo apellido es obligatorio.",
-                    "min_length" => "El campo apellido debe tener al menos 2 caracteres."
-                ]
-            ],
-            "contraseña" => [
-                "rules" => "required|min_length[6]",
-                "errors" => [
-                    "required" => "El campo contraseña es obligatorio.",
-                    "min_length" => "La contraseña debe tener al menos 6 caracteres."
-                ]
-            ],
-            "correo" => [
-                "rules" => "required|valid_email|is_unique[login.correo]",
-                "errors" => [
-                    "required" => "El campo correo es obligatorio.",
-                    "is_unique" => "Este correo ya esta registrado."
-                ]
-            ],
-            "contraseña2" => [
-                "rules" => "required|matches[contraseña]",
-                "errors" => [
-                    "required" => "Debe confirmar la contraseña.",
-                    "matches" => "Las contraseñas no coinciden."
-                ]
-            ]
-        ]);
-
-        //obtener los errores
-        if (!$validation) {
-            $session = session();
-            $session->setFlashdata("errores", $this->validator->getErrors()); // Obtiene todos los errores
-            return redirect()->back()->withInput();
-        }
-
-        //hashear la contraseña
-        $contraseña = $this->request->getPost("contraseña");
-        $contraseña_hash = password_hash($contraseña, PASSWORD_DEFAULT);
-
-        if($correo=$this->request->getVar("correo")){
-        //obtener los datos del formulario y la contraseña hasheada
-        $datos=[
-            "nombre"=> $this->request->getVar("nombre"),
-            "apellido"=> $this->request->getVar("apellido"),
-            "correo"=> $this->request->getVar("correo"),
-            "code"=> $this->request->getVar("code"),
-            "contraseña"=> $contraseña_hash    
-        ];
-
-        $registrar->insert($datos); //insertar los datos a la bd
-        }
-    return $this->response->redirect(site_url("/login")); //redirigir a la vista del login en caso de registrarse correctamente
-    }
-
 //funcion para iniciar sesión
     public function login(){
         $user = new RegistroLogin();
@@ -176,130 +102,7 @@ class Cbiblioteca extends Controller{
         return view('vistas-biblioteca/guardar', $datos);
     }
 
-//funcion para mostrar el guardado de libros/archivos
-    public function guardar(){
- 
-        $datos["header"] = view("templates/header"); 
-        $datos["footer"] = view("templates/footer"); 
-
-        return view("vistas-biblioteca/guardar", $datos); 
-    }
-
-
-//funcion para guardar libros/archivos
-    public function guardado(){
-
-        $guardar = new Libros();
-        $buscar = new Etiquetas();
-        $session = session();
-        //validaciones
-        $validation = $this->validate([
-            "titulo" => [
-                "rules" => "required|min_length[3]|is_unique[libros.titulo]",
-                "errors" => [
-                    "required" => "El campo titulo es obligatorio.",
-                    "min_length" => "El campo titulo debe tener al menos 3 caracteres.",
-                    "is_unique" => "Este titulo ya esta registrado."
-                ]
-            ],
-            "portada" => [
-                "rules" => "mime_in[portada,image/jpg,image/jpeg,image/png]|max_size[portada,2048]",
-                "errors" => [
-                    "mime_in" => "La imagen debe estar en formato jpg, jpeg o png.",
-                    "max_size" => "El tamaño de la imagen no debe exceder los 2mb"
-                ]
-            ],
-            "archivo" => [
-                "rules" => "uploaded[archivo]|mime_in[archivo,application/pdf]|",
-                "errors" => [
-                    "uploaded" => "Necesita subir un archivo.",
-                    "mime_in" => "El archivo debe estar en formato PDF."
-                ]
-            ],
-            "semestre" => [
-                "rules" => "required",
-                "errors" => [
-            "required" => "Debe seleccionar un semestre."
-                ]
-            ]
-        ]);
-        
-        //validar el checkbox dinamico
-        $checkboxError = false;
-        if (session("informatica") == 'desactivado' && session("maritima") == 'desactivado'){
-            $checkboxError = 'Debe seleccionar al menos una carrera.';
-        }
-
-        //procesar errores
-        if (!$validation || $checkboxError) {
-            $errors = $this->validator->getErrors(); //obtén los errores actuales
-            if ($checkboxError) {
-                $errors['checkbox'] = $checkboxError; //añadir error personalizado
-            }
-            $session = session();
-            $session->setFlashdata("errores", $errors);
-            
-            return redirect()->back()->withInput();
-        }
-
-        //verificar si se recibio el archivo
-        if ($archivo = $this->request->getFile("archivo")) {
-            $nombreOriginal = $archivo->getName(); //bbtiene el nombre original del archivo
-            $archivo->move("../public/uploads/archivos", $nombreOriginal); //mover el archivo
-        
-            if ($portada = $this->request->getFile("portada")) {
-                $nuevoNombrePortada = $portada->getRandomName(); //asigna un nombre random a la foto
-                $portada->move("../public/uploads/portadas", $nuevoNombrePortada); //mover la foto
-            } else {
-                $nuevoNombrePortada = null;
-            } 
-
-            //verificar la carrera para ingresarla a la bd
-            if (session("informatica") == 'informatica'){
-                $info = "informatica";
-            }else{
-                $info = "no";}
-            if (session("maritima") == 'maritima'){
-                $mari = "maritima";
-            }else{
-                $mari = "no";}
-
-            //obtener el nombre y apellido del usuario
-            $nombre = $session->get("nombre");
-            $apellido = $session->get("apellido");
-            $autor = $nombre . " " . $apellido;
-
-            $idUsuario = $session->get('id_usuario');
-
-            //recibir los datos
-            $datos=[
-                "id_usuario"=> $idUsuario,
-                "titulo"=> $this->request->getVar("titulo"),
-                "portada"=> $nuevoNombrePortada,
-                "archivo"=> $nombreOriginal,
-                "autor"=> $autor
-            ];
-
-            $idLibro = $guardar->insert($datos, true); //insertarlos a la tabla libros
-
-            //recibir los datos
-            $tags=[
-                "carrera_inf"=> $info,
-                "carrera_mar"=> $mari,
-                "materia"=> $this->request->getPost("materia"),
-                "semestre"=> $this->request->getPost("semestre"),
-                'id_libro' => $idLibro
-            ];
-
-        $buscar->insert($tags); //insertarlos a la tabla etiquetas
-
-        $session->remove('informatica');
-        $session->remove('maritima');
-        }
-        return $this->response->redirect(site_url("/listar")); //redirigir a la vista de inicio
-    }
-
-//funcion para mostrar la vista listar
+//funcion para mostrar la vista listar checked
     public function listar(){
         $session = session();
 
@@ -320,7 +123,7 @@ class Cbiblioteca extends Controller{
         return view("vistas-biblioteca/listar", $datos);
     }
 
-//funcion para borrar libros
+//funcion para borrar libros checked
     public function borrar($id=null){ //recibir el id del libro que le demos click
     
         $libro = new libros(); //objeto libro
@@ -343,7 +146,7 @@ class Cbiblioteca extends Controller{
         return $this->response->redirect(site_url("/listar")); //redirigir a la vista de inicio
     }
 
-//funcion para editar libros
+//funcion para editar libros checked
     public function editar($id=null){
         $libros = new libros();
         $etiquetas = new Etiquetas;
@@ -382,7 +185,7 @@ class Cbiblioteca extends Controller{
         return $this->response->redirect(base_url("/editar/$id"));
     }   
 
-//funcion para actualizar libros
+//funcion para actualizar libros checked
     public function actualizar() {
         $guardar = new libros(); // Modelo para la tabla 'libros'
         $buscar = new Etiquetas(); // Modelo para la tabla 'etiquetas'

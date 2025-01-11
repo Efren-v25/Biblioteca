@@ -1,5 +1,7 @@
 <?php echo $header;?>
 <br/>
+<h1>Resultados</h1>
+<br/>
 <table class="table table-light">
     <thead class="thead-light">
         <th>Portada</th>
@@ -22,4 +24,4 @@
     </tbody>
 </table>
 
-<?php echo $footer;?>
+<?php echo $footer;?> 

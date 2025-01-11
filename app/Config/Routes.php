@@ -7,19 +7,24 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('login', 'Cbiblioteca::index');
-$routes->get('registro', 'Cbiblioteca::registro');
-$routes->post('registrar', 'Cbiblioteca::registrar');
+
+//CrudUsuarios
+$routes->get('registro', 'CrudUsuarios::new');
+$routes->post('registrar', 'CrudUsuarios::create');
+
 $routes->post('login', 'Cbiblioteca::login');
 $routes->get('inicio', 'Cbiblioteca::inicio');
 $routes->get('inicio_profesores', 'Cbiblioteca::inicio_profesores');
 $routes->get('salir', 'Cbiblioteca::salir');
-$routes->get('guardar', 'Cbiblioteca::guardar');
-$routes->post('guardado', 'Cbiblioteca::guardado');
+
+//CrudLibros
+$routes->get('guardar', 'CrudLibros::new');
+$routes->post('guardado', 'CrudLibros:create');
 $routes->match(['get', 'post'], 'guardar', 'Cbiblioteca::selector');
 $routes->match(['get', 'post'], 'editar', 'Cbiblioteca::selectorEditar');
-$routes->get('listar', 'Cbiblioteca::listar');
-$routes->get('borrar/(:num)', 'Cbiblioteca::borrar/$1');
-$routes->get('editar/(:num)', 'Cbiblioteca::editar/$1');
+$routes->get('listar', 'CrudLibros::index');
+$routes->get('borrar/(:num)', 'CrudLibros::delete/$1');
+$routes->get('editar/(:num)', 'CrudLibros::edit/$1');
 $routes->post('actualizar', 'Cbiblioteca::actualizar');
 $routes->get('ocultar/(:num)', 'Cbiblioteca::ocultar/$1');
 $routes->get('mostrar/(:num)', 'Cbiblioteca::mostrar/$1');
