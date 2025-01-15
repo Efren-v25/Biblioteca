@@ -12,7 +12,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#tab5Id" class="nav-link">Libros</a>
+                <a href="<?= base_url('libros') ?>" class="nav-link">Libros</a>
             </li>
 
             <li class="nav-item">
@@ -21,6 +21,10 @@
 
             <li class="nav-item">
                 <a href="<?php echo base_url("salir") ?>" class="nav-link text-danger">Salir</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="<?= base_url('usuario/' . session()->get('id_usuario')) ?>" class="nav-link">Usuario</a>
             </li>
 
             <li class="nav-item">
@@ -37,7 +41,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#tab5Id" class="nav-link">Libros</a>
+                <a href="<?= base_url('libros') ?>" class="nav-link">Libros</a>
             </li>
 
             <li class="nav-item">
@@ -50,6 +54,10 @@
 
             <li class="nav-item">
                 <a href="<?php echo base_url("listar") ?>" class="nav-link">Mis archivos</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="<?= base_url('usuario/' . session()->get('id_usuario')) ?>" class="nav-link">Usuario</a>
             </li>
 
             <li class="nav-item">

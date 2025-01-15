@@ -27,7 +27,7 @@ class ProfesorFilter implements FilterInterface
     {
         if(!session()->get('profesor'))
         {
-            return redirect()->back();
+            return redirect()->to('/inicio');
         }
     }
 

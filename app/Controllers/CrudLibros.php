@@ -45,7 +45,20 @@ class CrudLibros extends Controller
      */
     public function show($id = null)
     {
-        //
+        if($id == null){
+            return redirect()->to('/');
+        }
+
+        $librosModel = new Libros();
+
+        $data = [
+            'id' => $id,
+            'libro' => $librosModel->find($id),
+            'header' => view('templates/header'),
+            'footer' => view('templates/footer')
+        ];
+        
+        return view('vistas-biblioteca/mostrarLibro',$data);
     }
 
     /**

@@ -4,8 +4,16 @@ use CodeIgniter\Controller;
 
 class Home extends Controller{
     function index(){
-        $data = ['header' => view('templates/header'), 'footer' => view('templates/footer')];
-        return view('vistas-biblioteca/inicio',$data);
+        if(!session()->get('logged'))
+        {
+            return redirect()->to('/login');
+        }else if(!session()->get('profesor'))
+        {
+            return redirect()->to('/inicio');
+        }else
+        {
+            return redirect()->to('/inicio_profesores');
+        }
     }
 }
 ?>

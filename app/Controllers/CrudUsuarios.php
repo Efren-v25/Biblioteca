@@ -26,7 +26,21 @@ class CrudUsuarios extends Controller
      */
     public function show($id = null)
     {
-        //
+        if($id == null or $id != session()->get('id_usuario')){
+            return redirect()->to('/');
+        }
+        
+        $usuariosModel = new RegistroLogin();
+
+        $data = [
+            'id' => $id,
+            'usuario' => $usuariosModel->find($id),
+            'header' => view('templates/header'),
+            'footer' => view('templates/footer')
+        ];
+
+        return view('vistas-biblioteca/usuario/mostrar', $data);
+
     }
 
     /**
@@ -91,7 +105,18 @@ class CrudUsuarios extends Controller
      */
     public function edit($id = null)
     {
-        //
+        if($id == null || !$id == session()->get('id_usuario')){
+            return redirect()->to('/');
+        }
+
+        $usuariosModel = new RegistroLogin();
+
+        $data = [
+            'usuario' => $usuariosModel->find($id),
+            'header' => view('templates/header'),
+            'footer' => view('templates/footer'),
+        ];
+        return view ('vistas-biblioteca/usuario/editar',$data);
     }
 
     /**
@@ -103,7 +128,34 @@ class CrudUsuarios extends Controller
      */
     public function update($id = null)
     {
-        //
+        if(!$this->request->is('PUT') or $id == null){
+            return redirect()->to('/');
+        }
+
+        $rules = [
+            "nombre" => "required|min_length[3]",
+            "apellido" => "required|min_length[2]",
+            "correo" => "required|valid_email|is_unique[login.correo,id_usuario,$id]",
+        ];
+
+        if(!$this->validate($rules)){
+            $session = session();
+            $session->setFlashdata("errores", $this->validator->getErrors()); // Obtiene todos los errores
+            return redirect()->back()->withInput();
+        }
+
+        $usuariosModel = new RegistroLogin;
+        $post = $this->request->getPost(['nombre','apellido','correo']);
+
+        $usuariosModel->update($id,
+        [
+            'nombre' => trim($post['nombre']),
+            'apellido' => trim($post['apellido']),
+            'correo' => $post['correo']
+        ]);
+
+        return redirect()->to('usuario/' . $id);
+
     }
 
     /**

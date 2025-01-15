@@ -4,6 +4,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\RegistroLogin;
 use App\Models\Libros;
+use CodeIgniter\HTTP\Response;
 class Cbiblioteca extends Controller{
 
 //funcion para mostrar el login
@@ -146,18 +147,49 @@ class Cbiblioteca extends Controller{
         return $this->response->redirect(site_url("/listar"));
     }
 //funcion del buscador navbar
-    public function buscador()
+    public function buscadorMostrar()
     {   
         $librosModel = new Libros();
-        $resultados = $librosModel->select('*')
-                                 ->like('titulo',$_POST['busqueda'])
-                                 ->findAll();
         $data = [
             'header' => view('templates/header'),
             'footer' => view('templates/footer'),
-            'resultados' => $resultados
-        ];
-        return view('buscador/resultados',$data);
+        ]; 
+        if(!isset($_POST['busqueda'])){
+            $resultados = $librosModel->select('*')
+                                      ->orderBy('titulo','ASC')
+                                      ->findAll();
+            $data['resultados'] = $resultados;
+            return view('vistas-biblioteca/libros',$data);
+
+        }else{
+            $resultados = $librosModel->select('*')
+                            ->like('titulo',$_POST['busqueda'])
+                            ->findAll();
+            $data['resultados'] = $resultados;
+            return view('buscador/resultados',$data);
+        }
+    }
+
+    public function descargar($id = null){
+
+        if($id == null){
+            return redirect()->back();
+        }
+
+        $librosModel = new Libros();
+
+        $libro = $librosModel->find($id);
+        $nombreArchivo = $libro['archivo'];
+
+        $ruta = ROOTPATH . 'public/uploads/archivos/' . $nombreArchivo;
+
+        if(file_exists($ruta)){
+            echo $ruta;
+            return $this->response->download($ruta, null);
+        }else{
+            return $this->response->setStatusCode(404,'Archivo no encontrado');
+        }
+        
     }
 }
 
