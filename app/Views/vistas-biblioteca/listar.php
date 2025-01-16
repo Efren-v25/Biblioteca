@@ -19,8 +19,11 @@
         <?php if ($etiqueta["id_libro"] == $libro["id_libro"]): ?>
         <tr>
             <td><?php echo $libro["titulo"] ?></td>
+            
             <td>
+                <a href="<?= base_url('libros/' . $libro["id_libro"])?>">
                 <img class="img-thumbnail" src="<?php echo base_url() ?>/uploads/portadas/<?php echo $libro["portada"] ?>" width="100">
+                </a>
             </td>
             <td><?php echo $etiqueta["carrera_inf"] ?></td>
             <td><?php echo $etiqueta["carrera_mar"] ?></td>

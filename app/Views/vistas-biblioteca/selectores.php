@@ -78,6 +78,7 @@
         <option value="tecnologia-digital-1">Tecnología Digital I</option>
         <option value="tecnologia-digital-2">Tecnología Digital II</option>
         <option value="tecnicas-investigacion-documental">Técnicas de Investigación Documental</option>
+        <option value="teoria-economica">Teoría Económica</option>
         <option value="teorias-tecnicas-decision">Teorías y Técnicas de Decisión</option>
         <option value="transmision-datos-1">Transmisión de Datos I</option>
         <option value="transmision-datos-2">Transmisión de Datos II</option>
@@ -164,6 +165,7 @@
         <option value="sistemas-maquinas-auxiliares-1">Sistemas de Máquinas Auxiliares I</option>
         <option value="sistemas-maquinas-auxiliares-2">Sistemas de Máquinas Auxiliares II</option>
         <option value="sistemas-maquinas-propulsoras">Sistemas de Máquinas Propulsoras</option>
+        <option value="teoria-economica">Teoría Económica</option>
         <option value="termodinamica">Termodinámica</option>
     </select>
 <?php } ?>
@@ -194,6 +196,7 @@
         <option value="metodologia-investigacion-2">Metodología de la Investigación II</option>
         <option value="organizacion-administracion-empresas">Organización y Administración de Empresas</option>
         <option value="servicio-social-comunitario">Servicio Social Comunitario</option>
+        <option value="teoria-economica">Teoría Económica</option>
     </select>
 <?php } ?>
 

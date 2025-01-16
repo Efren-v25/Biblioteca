@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="descripcion">Descripción (50 caracteres)</label>
+                            <label for="descripcion">Descripción</label>
                             <input id="descripcion" class="form-control" type="text" name="descripcion" placeholder="Descripción" value="<?= old("descripcion") ?>">
                             <?php if (session("errores.descripcion")) : ?>
                                 <div class="text-danger"><?= session("errores.descripcion") ?></div>

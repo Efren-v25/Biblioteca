@@ -26,7 +26,9 @@
                         by <?php echo $libro["autor"] ?><br> 
                         <?php if (in_array($libro["id_libro"], $favoritosIds)) { ?> 
                             <a href="<?php echo base_url("favsdelete/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Quitar de favoritos</a> 
-                        <?php } ?> 
+                        <?php } else { ?>
+                            <a href="<?php echo base_url("favs/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Añadir a Favoritos</a>
+                        <?php } ?>
                     </div>
                    
                 </div>
