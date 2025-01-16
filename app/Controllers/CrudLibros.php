@@ -5,6 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\Libros;
 use App\Models\Etiquetas;
+use App\Models\Favoritos;
 
 class CrudLibros extends Controller
 {
@@ -19,9 +20,14 @@ class CrudLibros extends Controller
 
         $librosModel = new Libros();
         $tagsModel = new etiquetas();
+        $favoritosModel = new Favoritos();
         $idUsuario = session()->get('id_usuario'); // Obtén el ID del usuario actual desde la sesión.
         
+        $fav = $favoritosModel->where("id_usuario",$idUsuario)
+                              ->findAll();
+
         $data = [
+            "favoritosIds" => array_column($fav,"id_libro"),
             'etiquetas' => $tagsModel->orderBy("id_libro","ASC")->findAll(),
             'libros' => $librosModel->obtenerPorUsuario($idUsuario),
             'header' => view('templates/header'),
@@ -89,6 +95,7 @@ class CrudLibros extends Controller
         //validaciones
         $rules = [
             "titulo" => "required|min_length[3]|is_unique[libros.titulo]",
+            "descripcion" => "required|max_length[50]",
             "portada" => [
                 "rules" => "mime_in[portada,image/jpg,image/jpeg,image/png]|max_size[portada,2048]",
                 "errors" => [
@@ -156,6 +163,7 @@ class CrudLibros extends Controller
             $datos=[
                 "id_usuario"=> $idUsuario,
                 "titulo"=> $this->request->getVar("titulo"),
+                "descripcion"=> $this->request->getVar("descripcion"),
                 "portada"=> $nuevoNombrePortada,
                 "archivo"=> $nombreOriginal,
                 "autor"=> $autor
@@ -222,11 +230,15 @@ class CrudLibros extends Controller
         }
 
         // Datos principales para la tabla 'libros'
-        $datosLibro = ["titulo" => $this->request->getVar("titulo")];
+        $datosLibro = [
+            "titulo" => $this->request->getVar("titulo"),
+            "descripcion" => $this->request->getVar("descripcion")
+        ];
 
         // Validaciones
         $validation = $this->validate([
             "titulo" => "required|min_length[3]|is_unique[libros.titulo,id_libro,{$id}",
+            "descripcion" => "required|max_length[50]",
             "semestre" => "required"
         ]);
 

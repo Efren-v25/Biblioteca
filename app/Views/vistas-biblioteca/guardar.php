@@ -39,6 +39,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="descripcion">Descripción (50 caracteres)</label>
+                            <input id="descripcion" class="form-control" type="text" name="descripcion" placeholder="Descripción" value="<?= old("descripcion") ?>">
+                            <?php if (session("errores.descripcion")) : ?>
+                                <div class="text-danger"><?= session("errores.descripcion") ?></div>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group">
                             <label for="portada">Portada (opcional)</label>
                             <input id="portada" class="form-control" type="file" name="portada">
                             <?php if (session("errores.portada")) : ?>

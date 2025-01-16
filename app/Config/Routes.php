@@ -41,5 +41,9 @@ $routes->get('ocultar/(:num)', 'Cbiblioteca::ocultar/$1');
 $routes->get('mostrar/(:num)', 'Cbiblioteca::mostrar/$1');
 $routes->get('libros','Cbiblioteca::buscadorMostrar');      //boton libros de la navbar
 $routes->post('resultados','Cbiblioteca::buscadorMostrar'); //buscador
-$routes->get('descargar/(:num)', 'Cbiblioteca::descargar/$1');
+
+//Favoritos
+$routes->get('favs/(:num)', 'Cbiblioteca::favs/$1');
+$routes->get('favsdelete/(:num)', 'Cbiblioteca::favsdelete/$1');
+$routes->get('favoritos', 'Cbiblioteca::favoritos');
 

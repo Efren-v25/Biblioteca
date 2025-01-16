@@ -72,7 +72,7 @@ class Filters extends BaseFilters
     public array $globals = [
         'before' => [
             'auth' => ['except' => ['login', 'registro', 'registrar', 'public/*']], // Excepciones
-            'prof' => ['except' => ['login', 'registro', 'registrar', 'public/*','inicio','salir','resultados','libros','libros/*','descargar/*','usuario/*']]
+            'prof' => ['except' => ['login', 'registro', 'registrar', 'public/*','inicio','salir','resultados','libros','libros/*','descargar/*','usuario/*','favoritos','favoritos/*']]
             //'prof' => ['only' => ['inicio_profesores','guardar','listar','guardado','borrar/*','editar/*','actualizar','ocultar','mostrar']]
         ],
         'after'  => [],

@@ -16,7 +16,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#tab5Id" class="nav-link">Favoritos</a>
+                <a href="<?= base_url("favoritos")?>" class="nav-link">Favoritos</a>
             </li>
 
             <li class="nav-item">
@@ -45,7 +45,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#tab5Id" class="nav-link">Favoritos</a>
+                <a href="<?= base_url("favoritos")?>" class="nav-link">Favoritos</a>
             </li>
 
             <li class="nav-item">

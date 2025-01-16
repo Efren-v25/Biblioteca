@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 class Libros extends Model{
     protected $table      = 'libros'; //tabla
     protected $primaryKey = 'id_libro'; //llave primaria
-    protected $allowedFields= ["id_usuario","titulo","portada","archivo","autor","visible"];
+    protected $allowedFields= ["id_usuario","titulo","portada","archivo","autor","descripcion","visible"];
 
     public function obtenerPorUsuario($idUsuario){
         return $this->where('id_usuario', $idUsuario)->findAll();

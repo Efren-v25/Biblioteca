@@ -11,5 +11,7 @@
 
 <a href="<?= base_url('uploads/archivos/' . $libro['archivo'] )?>"><?= $libro['archivo'] ?></a>
 
+<a href="<?= base_url('usuario/' . $libro['id_usuario'])?>"><?= $libro['autor'] ?></a>
+
 
 <?= $footer ?>

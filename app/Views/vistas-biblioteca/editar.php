@@ -45,6 +45,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="descripcion">Descripción (50 caracteres)</label>
+                            <input id="descripcion" class="form-control" type="text" name="descripcion" placeholder="Descripción" value="<?= $libro['descripcion'] ?>">
+                            <?php if (session("errores.descripcion")) : ?>
+                                <div class="text-danger"><?= session("errores.descripcion") ?></div>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group">
                             <label for="portada">Portada (opcional)</label>
                             <br><img class="img-thumbnail" src= "<?php echo base_url()?>/uploads/portadas/<?php echo $libro["portada"]?>" width="100">
                             <input id="portada" class="form-control" type="file" name="portada">

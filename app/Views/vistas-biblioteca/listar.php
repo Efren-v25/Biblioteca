@@ -30,10 +30,15 @@
                 <a href="<?php echo base_url("editar/".$libro["id_libro"])?>" class="btn btn-primary" type="button">Editar</a>
                 <a href="<?php echo base_url("borrar/".$libro["id_libro"])?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar este empleado?')" type="button">Borrar</a>
                 <?php if ($libro["visible"] == '1') { ?> 
-                    <a href="<?php echo base_url("ocultar/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Ocultar</a> <?php } 
-                    else { ?> 
+                    <a href="<?php echo base_url("ocultar/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Ocultar</a> 
+                    <?php } else { ?> 
                     <a href="<?php echo base_url("mostrar/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Mostrar</a> 
                 <?php } ?> 
+                <?php if (in_array($libro["id_libro"], $favoritosIds)) { ?>
+                    <a href="<?php echo base_url("favsdelete/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Quitar de favoritos</a> 
+                    <?php } else { ?>
+                    <a href="<?php echo base_url("favs/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Añadir a Favoritos</a>
+                <?php } ?>
             </td>
         </tr>
         <?php endif; ?>

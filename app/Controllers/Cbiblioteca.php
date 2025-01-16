@@ -1,6 +1,7 @@
 <?php 
 namespace App\Controllers;
 
+use App\Models\Favoritos;
 use CodeIgniter\Controller;
 use App\Models\RegistroLogin;
 use App\Models\Libros;
@@ -14,23 +15,45 @@ class Cbiblioteca extends Controller{
 
 //funcion para mostrar el inicio de estudiantes
     public function inicio(){
-        $mostrar = new Libros();
-        $datos["libros"] = $mostrar->where('visible', 1)->orderBy("fecha_subida","ASC")->findAll();
-        $datos["header"] = view("templates/header"); //agregar el header
-        $datos["footer"] = view("templates/footer"); //agregar el footer
+        $librosModel = new Libros();
+        $favoritosModel = new Favoritos();
+        $idUsuario = session()->get('id_usuario');
 
-        return view("vistas-biblioteca/inicio", $datos); //mostrar la vista + header y footer
+        $fav = $favoritosModel->where('id_usuario',$idUsuario)
+                              ->findAll();
+
+        $data = [
+            "libros" => $librosModel->where('visible', 1)
+                                    ->orderBy("fecha_subida","ASC")
+                                    ->findAll(),
+            "favoritosIds" => array_column($fav,"id_libro"),
+            "header" => view("templates/header"),
+            "footer" => view("templates/footer"),
+        ];
+     
+        return view("vistas-biblioteca/inicio", $data); //mostrar la vista + header y footer
     }
 
 //funcion para mostrar el inicio de profesores
     public function inicio_profesores(){
 
-        $mostrar = new Libros();
-        $datos["libros"] = $mostrar->where('visible', 1)->orderBy("fecha_subida","ASC")->findAll();
-        $datos["header"] = view("templates/header"); 
-        $datos["footer"] = view("templates/footer");
+        $librosModel = new Libros();
+        $favoritosModel = new Favoritos();
+        $idUsuario = session()->get('id_usuario');
 
-        return view("vistas-biblioteca/inicio_profesores", $datos);
+        $fav = $favoritosModel->where('id_usuario',$idUsuario)
+                              ->findAll();
+
+        $data = [
+            "libros" => $librosModel->where('visible', 1)
+                                    ->orderBy("fecha_subida","ASC")
+                                    ->findAll(),
+            "favoritosIds" => array_column($fav,"id_libro"),
+            "header" => view("templates/header"),
+            "footer" => view("templates/footer"),
+        ];
+
+        return view("vistas-biblioteca/inicio_profesores", $data);
     }
 
 //funcion para iniciar sesión
@@ -146,11 +169,19 @@ class Cbiblioteca extends Controller{
 
         return $this->response->redirect(site_url("/listar"));
     }
+
 //funcion del buscador navbar
     public function buscadorMostrar()
     {   
+        $favoritosModel = new Favoritos();
         $librosModel = new Libros();
+        $idUsuario = session()->get('id_usuario');
+
+        $fav = $favoritosModel->where("id_usuario",$idUsuario)
+                              ->findAll();
+
         $data = [
+            "favoritosIds" => array_column($fav,"id_libro"),
             'header' => view('templates/header'),
             'footer' => view('templates/footer'),
         ]; 
@@ -158,18 +189,24 @@ class Cbiblioteca extends Controller{
             $resultados = $librosModel->select('*')
                                       ->orderBy('titulo','ASC')
                                       ->findAll();
+
             $data['resultados'] = $resultados;
+    
             return view('vistas-biblioteca/libros',$data);
 
         }else{
             $resultados = $librosModel->select('*')
                             ->like('titulo',$_POST['busqueda'])
                             ->findAll();
+
             $data['resultados'] = $resultados;
+            $data['busqueda'] = $_POST['busqueda'];
+
             return view('buscador/resultados',$data);
         }
     }
 
+//funcion para descargar archivos (NO SE UTILIZA POR AHORA)
     public function descargar($id = null){
 
         if($id == null){
@@ -190,6 +227,62 @@ class Cbiblioteca extends Controller{
             return $this->response->setStatusCode(404,'Archivo no encontrado');
         }
         
+    }
+
+//funcion para guardar favoritos
+    public function favs($id=null){
+        $favoritosModel = new Favoritos();
+        $idUsuario = session()->get('id_usuario');
+
+        $data = [
+            "id_usuario" => $idUsuario,
+            "id_libro" => $id
+        ];
+        
+        $favoritosModel->insert($data);
+
+        if (isset($_GET['buscador'])){
+            return redirect()->to('favoritos');
+        }
+        return redirect()->back()->withInput();
+        
+    }
+
+//funcion para eliminar de favoritos
+    public function favsdelete($id=null){
+        $favoritosModel = new Favoritos();
+        $idUsuario = session()->get('id_usuario');
+
+        $favoritosModel->where("id_libro",$id)
+                       ->where("id_usuario",$idUsuario)
+                       ->delete();
+                       
+        if (isset($_GET['buscador'])){
+            return redirect()->to('favoritos');
+        }
+        return redirect()->back()->withInput();
+    }
+
+//funcion para mostrar la vista favoritos
+    public function favoritos(){
+        $librosModel = new Libros();
+        $favoritosModel = new Favoritos();
+        $idUsuario = session()->get('id_usuario');
+
+        $fav = $favoritosModel->where("id_usuario",$idUsuario)
+                              ->findAll();
+        
+        $data = [
+            "favoritosIds" => array_column($fav,"id_libro"),
+            "libros" => $librosModel->where('visible',1)
+                                    ->orderBy("fecha_subida","ASC")
+                                    ->findAll(),
+            "favoritos" => $favoritosModel->obtenerPorUsuario($idUsuario),
+            "header" => view('templates/header'),
+            "footer" => view('templates/footer')
+        ];
+
+        return view("vistas-biblioteca/favoritos", $data);
     }
 }
 
