@@ -20,13 +20,12 @@
             </li>
 
             <li class="nav-item">
-                <a href="<?php echo base_url("salir") ?>" class="nav-link text-danger">Salir</a>
-            </li>
-
-            <li class="nav-item">
                 <a href="<?= base_url('usuario/' . session()->get('id_usuario')) ?>" class="nav-link">Usuario</a>
             </li>
-
+            
+            <li class="nav-item">
+                <a href="<?php echo base_url("salir") ?>" class="nav-link text-danger">Salir</a>
+            </li>
             <li class="nav-item">
                 <form action=<?php echo base_url('resultados')?> method="post">
                     <input type="search" name="busqueda" placeholder="Busqueda..." >

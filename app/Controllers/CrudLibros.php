@@ -95,7 +95,7 @@ class CrudLibros extends Controller
         //validaciones
         $rules = [
             "titulo" => "required|min_length[3]|is_unique[libros.titulo]",
-            "descripcion" => "required|max_length[50]",
+            "descripcion" => "required|max_length[255]",
             "portada" => [
                 "rules" => "mime_in[portada,image/jpg,image/jpeg,image/png]|max_size[portada,2048]",
                 "errors" => [
@@ -238,7 +238,7 @@ class CrudLibros extends Controller
         // Validaciones
         $validation = $this->validate([
             "titulo" => "required|min_length[3]|is_unique[libros.titulo,id_libro,{$id}",
-            "descripcion" => "required|max_length[50]",
+            "descripcion" => "required|max_length[255]",
             "semestre" => "required"
         ]);
 

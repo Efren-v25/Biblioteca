@@ -8,6 +8,7 @@
         <th>Título</th>
         <th>Archivo</th>
         <th>Autor</th>
+        <th>Acciones</th>
     </thead>
     <tbody>
         <?php foreach($resultados as $resultado):?>
@@ -18,6 +19,13 @@
                 <td><?php echo $resultado['titulo'];?></td>
                 <td><a title="Ver Archivo" href="<?= base_url('uploads/archivos/' . $resultado['archivo']) ?>"><?php echo $resultado['archivo'];?></a></td>
                 <td><?php echo $resultado['autor'];?></td>
+                <td>
+                    <?php if (in_array($resultado["id_libro"], $favoritosIds)) { ?>
+                        <a href="<?php echo base_url("favsdelete/".$resultado["id_libro"])?>" class="btn btn-warning" type="button">Quitar de favoritos</a> 
+                        <?php } else { ?>
+                        <a href="<?php echo base_url("favs/".$resultado["id_libro"])?>" class="btn btn-warning" type="button">Añadir a Favoritos</a>
+                    <?php } ?>
+                </td>
             </tr>
         <?php endforeach;?>
     </tbody>

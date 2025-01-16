@@ -7,7 +7,7 @@
     <?php if ($libro["id_libro"] == $favorito["id_libro"]) { ?> 
             <div class="col-md-3">
                 <div class="card">
-                    <img src="<?php echo base_url()?>/uploads/portadas/<?php echo $libro["portada"]?>" class="card-img-top img-fluid" alt="Card Image" ">
+                    <a href="<?= base_url('libros/' . $libro['id_libro'])?>"><img src="<?php echo base_url()?>/uploads/portadas/<?php echo $libro["portada"]?>" class="card-img-top img-fluid" alt="Card Image" "></a>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $libro["titulo"] ?></h5>
                     </div>

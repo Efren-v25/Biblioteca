@@ -26,9 +26,11 @@ class CrudUsuarios extends Controller
      */
     public function show($id = null)
     {
+        /*
         if($id == null or $id != session()->get('id_usuario')){
             return redirect()->to('/');
         }
+        */
         
         $usuariosModel = new RegistroLogin();
 
