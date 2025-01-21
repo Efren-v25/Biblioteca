@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Biblioteca Virtual UMC - Registro</title>
     <style>
         body {
@@ -126,7 +127,7 @@
         <form action="<?= base_url('registrar') ?>" method="POST">
             <div class="form-group">
                 <label for="username">Nombre</label>
-                <input type="text" id="nombre" name="nombre" value="<?= old("nombre") ?>"  required>
+                <input type="text" id="nombre" name="nombre" value="<?= old("nombre") ?>"  >
                 <?php if (session("errores.nombre")) : ?>
                     <div class="text-danger">
                         <?= session("errores.nombre") ?>
@@ -136,7 +137,7 @@
 
             <div class="form-group">
                 <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido" value="<?= old("apellido") ?>"  required>
+                <input type="text" id="apellido" name="apellido" value="<?= old("apellido") ?>"  >
                 <?php if (session("errores.apellido")) : ?>
                     <div class="text-danger">
                         <?= session("errores.apellido") ?>
@@ -146,7 +147,7 @@
 
             <div class="form-group">
                 <label for="correo">Correo electrónico</label>
-                <input type="email" id="correo" name="correo" value="<?= old("correo") ?>"  required>
+                <input type="email" id="correo" name="correo" value="<?= old("correo") ?>"  >
                 <?php if (session("errores.correo")) : ?>
                     <div class="text-danger">
                         <?= session("errores.correo") ?>
@@ -157,7 +158,7 @@
             <div class="form-group">
                 <label for="contraseña">Contraseña</label>
                 <div class="password-container">
-                    <input type="password" id="contraseña" name="contraseña" value=""  required>
+                    <input type="password" id="contraseña" name="contraseña" value=""  >
                     <?php if (session("errores.contraseña")) : ?>
                         <div class="text-danger">
                             <?= session("errores.contraseña") ?>
@@ -169,7 +170,7 @@
             <div class="form-group">
                 <label for="contraseña2">Confirmar contraseña</label>
                 <div class="password-container">
-                    <input type="password" id="contraseña2" name="contraseña2" value=""  required>
+                    <input type="password" id="contraseña2" name="contraseña2" value=""  >
                     <?php if (session("errores.contraseña2")) : ?>
                         <div class="text-danger">
                             <?= session("errores.contraseña2") ?>

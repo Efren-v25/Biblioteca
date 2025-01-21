@@ -24,7 +24,7 @@ class CrudLibros extends Controller
         $idUsuario = session()->get('id_usuario'); // Obtén el ID del usuario actual desde la sesión.
         
         $fav = $favoritosModel->where("id_usuario",$idUsuario)
-                              ->findAll();
+                            ->findAll();
 
         $data = [
             "favoritosIds" => array_column($fav,"id_libro"),

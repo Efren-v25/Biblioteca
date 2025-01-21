@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\Favoritos;
+use App\Models\Etiquetas;
 use CodeIgniter\Controller;
 use App\Models\RegistroLogin;
 use App\Models\Libros;
@@ -20,7 +21,7 @@ class Cbiblioteca extends Controller{
         $idUsuario = session()->get('id_usuario');
 
         $fav = $favoritosModel->where('id_usuario',$idUsuario)
-                              ->findAll();
+                            ->findAll();
 
         $data = [
             "libros" => $librosModel->where('visible', 1)
@@ -30,7 +31,7 @@ class Cbiblioteca extends Controller{
             "header" => view("templates/header"),
             "footer" => view("templates/footer"),
         ];
-     
+    
         return view("vistas-biblioteca/inicio", $data); //mostrar la vista + header y footer
     }
 
@@ -39,16 +40,18 @@ class Cbiblioteca extends Controller{
 
         $librosModel = new Libros();
         $favoritosModel = new Favoritos();
+        $tagsModel = new etiquetas();
         $idUsuario = session()->get('id_usuario');
 
         $fav = $favoritosModel->where('id_usuario',$idUsuario)
-                              ->findAll();
+                            ->findAll();
 
         $data = [
             "libros" => $librosModel->where('visible', 1)
                                     ->orderBy("fecha_subida","ASC")
                                     ->findAll(),
             "favoritosIds" => array_column($fav,"id_libro"),
+            'etiquetas' => $tagsModel->orderBy("id_libro","ASC")->findAll(),
             "header" => view("templates/header"),
             "footer" => view("templates/footer"),
         ];
@@ -270,7 +273,7 @@ class Cbiblioteca extends Controller{
         $idUsuario = session()->get('id_usuario');
 
         $fav = $favoritosModel->where("id_usuario",$idUsuario)
-                              ->findAll();
+                            ->findAll();
         
         $data = [
             "favoritosIds" => array_column($fav,"id_libro"),
