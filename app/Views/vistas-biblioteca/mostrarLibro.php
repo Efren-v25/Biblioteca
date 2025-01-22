@@ -54,8 +54,18 @@
             <h1><a href="<?= base_url('uploads/archivos/' . $libro['archivo'] )?>"><?= $libro['titulo']?></a></h1>
             <p><?= $libro['descripcion'] ?></p>
             <div class="info">
-                <span>Semestre: </span>
-                <span>Carrera: </span>
+                <span>Semestre: <?= $etiquetas['semestre']?></span>
+                <span>Carrera:
+                    <?php if($etiquetas['carrera_inf'] != 'no' and $etiquetas['carrera_mar'] != 'no'):?>
+                        Informática y Marítima
+                    <?php else: ?>
+                        <?php if($etiquetas['carrera_inf'] != 'no'):?>
+                            Informática
+                        <?php else: ?>
+                            Marítima
+                        <?php endif ?>
+                    <?php endif ?>
+                </span>
                 <span>Fecha de subida: <?= $libro['fecha_subida'] ?></span>
                 <span>Subido por: <?= $libro['autor'] ?></span>
             </div>

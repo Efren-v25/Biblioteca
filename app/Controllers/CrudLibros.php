@@ -56,10 +56,12 @@ class CrudLibros extends Controller
         }
 
         $librosModel = new Libros();
+        $tagsModel = new Etiquetas();
 
         $data = [
             'id' => $id,
             'libro' => $librosModel->find($id),
+            'etiquetas' => $tagsModel->find($id),
             'header' => view('templates/header'),
             'footer' => view('templates/footer')
         ];
