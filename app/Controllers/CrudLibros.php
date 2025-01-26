@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\ComentariosModel;
 use CodeIgniter\Controller;
 use App\Models\Libros;
 use App\Models\Etiquetas;
@@ -57,11 +58,13 @@ class CrudLibros extends Controller
 
         $librosModel = new Libros();
         $tagsModel = new Etiquetas();
+        $comentariosModel = new ComentariosModel();
 
         $data = [
             'id' => $id,
             'libro' => $librosModel->find($id),
             'etiquetas' => $tagsModel->find($id),
+            'comentarios' => $comentariosModel->findAll($id),
             'header' => view('templates/header'),
             'footer' => view('templates/footer')
         ];
