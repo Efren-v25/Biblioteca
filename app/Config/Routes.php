@@ -47,3 +47,6 @@ $routes->get('favs/(:num)', 'Cbiblioteca::favs/$1');
 $routes->get('favsdelete/(:num)', 'Cbiblioteca::favsdelete/$1');
 $routes->get('favoritos', 'Cbiblioteca::favoritos');
 
+//Crud Comentarios
+
+$routes->post('comentarios', 'CrudComentarios::create');

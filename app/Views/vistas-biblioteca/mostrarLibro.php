@@ -72,5 +72,31 @@
         </div>
     </div>
 </div>
+<h3>Comentarios:</h3>
+<table>
+    <thead>
+        <th>Subido por</th>
+        <th>Comentario</th>
+    </thead>
+    <tbody>
+    <?php foreach ($comentarios as $comentario): ?>
+        <tr>
+            <td>
+                <?= $comentario['nombre'] . " " . $comentario['apellido']?>
+            </td>
+            <td>
+                <?= $comentario['comentario']?>
+            </td>
+        </tr>
+    <?php endforeach?>  
+    </tbody>
+</table>
+
+<form action= <?= base_url("comentarios")?> method="POST">
+    <input type="hidden" name="id_libro" value=<?= $libro['id_libro'] ?>>
+    <input type="text" name="comentario" id="comentario">
+    <button type="submit">aceptar</button>
+</form>
 <br><br>
+
 <?= $footer ?>

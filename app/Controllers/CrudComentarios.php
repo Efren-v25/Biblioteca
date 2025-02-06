@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\ComentariosModel;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\HTTP\ResponseInterface;
 
@@ -46,7 +47,31 @@ class CrudComentarios extends ResourceController
      */
     public function create()
     {
-        //
+        $comentariosModel = new ComentariosModel();
+        $session = session();
+        $rules = [
+            'comentario' => "max_length[255]|is_unique[comentarios.comentario]"
+        ];
+
+        if (!$this->validate($rules)){
+            $errors = $this->validator->getErrors();
+            $session->setFlashdata($errors);
+            return redirect()->back()->withInput();
+        };
+        if (!$session->get('id_usuario')){
+            $errors = "Para poder comentar, debes iniciar sesión.";
+            return redirect()->back()->withInput();
+        }
+
+        $datos = [
+            'id_libro' => $this->request->getPost('id_libro'),
+            'id_usuario' => $session->get('id_usuario'),
+            'comentario' => $this->request->getPost('comentario')
+        ];
+
+        $comentariosModel->insert($datos);
+
+        return redirect()->back();
     }
 
     /**
@@ -82,6 +107,11 @@ class CrudComentarios extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        $comentariosModel = new ComentariosModel();
+        $session = session();
+
+        $comentariosModel->where('id_usuario',$session->get('id_usuario'))
+                         ->where('id_libro',$id);
+
     }
 }

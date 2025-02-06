@@ -64,7 +64,8 @@ class CrudLibros extends Controller
             'id' => $id,
             'libro' => $librosModel->find($id),
             'etiquetas' => $tagsModel->find($id),
-            'comentarios' => $comentariosModel->findAll($id),
+            'comentarios' => $comentariosModel->join("login","comentarios.id_usuario = login.id_usuario")
+                                              ->findAll($id),
             'header' => view('templates/header'),
             'footer' => view('templates/footer')
         ];

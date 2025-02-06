@@ -133,11 +133,22 @@
                 <a href="<?= base_url('libros') ?>">Libros</a>
             </div>
             <a href="<?= base_url("favoritos")?>">Favoritos</a>
-                <form action=<?php echo base_url('resultados')?> method="post">
-                    <input type="search" name="busqueda" placeholder="Busqueda..." >
-                    <button type="submit">Buscar</button>
-                </form>
         </div>
+        
+        <div class="buscador">
+        <form action=<?php echo base_url('resultados')?> method="post">
+            <div class="search-container">
+                <input type="search" name="busqueda" placeholder="Busqueda..." >
+                <button type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="16" y1="16" x2="21" y2="21"></line>
+                    </svg>
+                </button> 
+            </div>
+        </form>
+        </div>
+
         <div class="end">
         <a href="<?php echo base_url("salir") ?>" class="salir">Salir</a>
         <a href="<?= base_url('usuario/' . session()->get('id_usuario')) ?>" class="contacto">Mi Perfil</a>
