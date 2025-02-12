@@ -19,44 +19,23 @@ class Cbiblioteca extends Controller{
         $librosModel = new Libros();
         $favoritosModel = new Favoritos();
         $idUsuario = session()->get('id_usuario');
+        $tagsModel = new Etiquetas();
 
         $fav = $favoritosModel->where('id_usuario',$idUsuario)
                             ->findAll();
 
         $data = [
             "libros" => $librosModel->where('visible', 1)
-                                    ->orderBy("fecha_subida","ASC")
+                                    ->orderBy("RAND()")
+                                    ->limit(8)
                                     ->findAll(),
+            'etiquetas' => $tagsModel->orderBy("id_libro","ASC")->findAll(),                        
             "favoritosIds" => array_column($fav,"id_libro"),
             "header" => view("templates/header"),
             "footer" => view("templates/footer"),
         ];
     
         return view("vistas-biblioteca/inicio", $data); //mostrar la vista + header y footer
-    }
-
-//funcion para mostrar el inicio de profesores
-    public function inicio_profesores(){
-
-        $librosModel = new Libros();
-        $favoritosModel = new Favoritos();
-        $tagsModel = new etiquetas();
-        $idUsuario = session()->get('id_usuario');
-
-        $fav = $favoritosModel->where('id_usuario',$idUsuario)
-                            ->findAll();
-
-        $data = [
-            "libros" => $librosModel->where('visible', 1)
-                                    ->orderBy("fecha_subida","ASC")
-                                    ->findAll(),
-            "favoritosIds" => array_column($fav,"id_libro"),
-            'etiquetas' => $tagsModel->orderBy("id_libro","ASC")->findAll(),
-            "header" => view("templates/header"),
-            "footer" => view("templates/footer"),
-        ];
-
-        return view("vistas-biblioteca/inicio_profesores", $data);
     }
 
 //funcion para iniciar sesión
@@ -77,17 +56,16 @@ class Cbiblioteca extends Controller{
                 "apellido" => $datosUsuario[0]["apellido"],
                 "code" => $datosUsuario[0]["code"]
             ];
+
             if($data["code"] == 138062){        //Verifica el codigo del usuario y lo agrega al array de datos de la session
                 $data["profesor"] = true;
-                $session = session();
-                $session->set($data);
-                return $this->response->redirect(site_url("/inicio_profesores"));
             }else{
                 $data["profesor"] = false;
-                $session = session();
+            }
+
+            $session = session();
                 $session->set($data);
                 return $this->response->redirect(site_url("/inicio"));
-            }
         }else{
             $session = session();
             $session->setFlashdata("mensaje","El correo o la contraseña es incorrecto.");
@@ -189,7 +167,9 @@ class Cbiblioteca extends Controller{
             'footer' => view('templates/footer'),
         ]; 
         if(!isset($_POST['busqueda'])){
-            $resultados = $librosModel->select('*')
+            $resultados = $librosModel->join("etiquetas","libros.id_libro = etiquetas.id_libro")
+                                      ->select('*')
+                                      ->where("visible", 1)
                                       ->orderBy('titulo','ASC')
                                       ->findAll();
 
@@ -198,8 +178,14 @@ class Cbiblioteca extends Controller{
             return view('vistas-biblioteca/libros',$data);
 
         }else{
-            $resultados = $librosModel->select('*')
-                            ->like('titulo',$_POST['busqueda'])
+            $resultados = $librosModel->join("etiquetas","libros.id_libro = etiquetas.id_libro")
+                            ->select('*')
+                            ->where("visible", 1)
+                            ->like("titulo",$_POST['busqueda'])
+                            ->orLike("autor",$_POST['busqueda'])
+                            ->orLike("materia",$_POST['busqueda'])
+                            ->orLike("carrera_inf",$_POST['busqueda'])
+                            ->orLike("carrera_mar",$_POST['busqueda'])
                             ->findAll();
 
             $data['resultados'] = $resultados;
@@ -277,7 +263,8 @@ class Cbiblioteca extends Controller{
         
         $data = [
             "favoritosIds" => array_column($fav,"id_libro"),
-            "libros" => $librosModel->where('visible',1)
+            "libros" => $librosModel->join("etiquetas","libros.id_libro = etiquetas.id_libro")
+                                    ->where('visible',1)
                                     ->orderBy("fecha_subida","ASC")
                                     ->findAll(),
             "favoritos" => $favoritosModel->obtenerPorUsuario($idUsuario),

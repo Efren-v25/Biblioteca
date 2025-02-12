@@ -8,6 +8,6 @@ class ComentariosModel extends Model
 {
     protected $table            = 'comentarios';
     protected $primaryKey       = false;
-    protected $allowedFields    = ['id_usuario','id_libro','comentario'];
+    protected $allowedFields    = ['id_usuario','id_libro','comentario','fecha_subida'];
 
 }

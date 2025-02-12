@@ -1,3 +1,37 @@
+<style>
+        body {
+            font-family: serif;
+            background-color: #E6F3FF; /* Light sky blue */
+            color: #000000;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        label {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
 <?php if (session("informatica") == 'informatica' && session("maritima") == 'desactivado' || (session('informatica') === null && $etiqueta["carrera_inf"] === "informatica" && $etiqueta["carrera_mar"] === "no" )){ ?>
     <label for="materias">Materias de Informática:</label><br>
 <select id="materia" name="materia" required>

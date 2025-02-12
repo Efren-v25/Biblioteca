@@ -19,11 +19,14 @@
         }
 
         .logo {
-            width: 60px;
-            height: 60px;
-            position: absolute;
-            top: 20px;
-            left: 20px;
+            width: 4rem;  /* 4x4 size */
+            height: 4rem;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            object-fit: contain; /* Maintains aspect ratio */
+            z-index: 1000; /* Ensures logo stays on top */
+            border-radius: 50%; /* Optional: keeps the circular shape */
         }
 
         .container {
@@ -118,7 +121,7 @@
 </head>
 
 <body>
-    <img src="<?= base_url('img/logo_umc.png')?>" alt="logo maritima" class="logo">
+    <img src="<?= base_url('img/logo_pergamo.jpeg')?>" alt="Logo" class="logo">
 
     <div class="container">
         <h1>Biblioteca Virtual UMC</h1>

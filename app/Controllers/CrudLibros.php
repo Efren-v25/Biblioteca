@@ -29,8 +29,10 @@ class CrudLibros extends Controller
 
         $data = [
             "favoritosIds" => array_column($fav,"id_libro"),
-            'etiquetas' => $tagsModel->orderBy("id_libro","ASC")->findAll(),
-            'libros' => $librosModel->obtenerPorUsuario($idUsuario),
+            'libros' => $librosModel->join("etiquetas","libros.id_libro = etiquetas.id_libro")
+                                    ->select("*")
+                                    ->where("id_usuario",$idUsuario)
+                                    ->findAll(),
             'header' => view('templates/header'),
             'footer' => view('templates/footer')
         ];
@@ -65,7 +67,9 @@ class CrudLibros extends Controller
             'libro' => $librosModel->find($id),
             'etiquetas' => $tagsModel->find($id),
             'comentarios' => $comentariosModel->join("login","comentarios.id_usuario = login.id_usuario")
-                                              ->findAll($id),
+                                              ->select("*")
+                                              ->where("id_libro",$id)
+                                              ->findAll(),
             'header' => view('templates/header'),
             'footer' => view('templates/footer')
         ];

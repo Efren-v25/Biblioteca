@@ -1,57 +1,251 @@
 <?php echo $header; ?>
+<style>
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #e6f3ff; /* Light sky blue background */
+    color: black;
+}
 
-<br><table class="table table-light">
-        <thead class="thead-light">
-            <tr>                   
-                <th>Titulo</th>
-                <th>Portada</th>
-                <th>Carrera</th>
-                <th>Carrera</th>
-                <th>Materia</th>
-                <th>Semestre</th>
-                <th>Acciones</th> 
-            </tr>
-        </thead>
-        <tbody>
+.titulo-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #5a5a5a;
+    width: 100%;
+    max-width: 1100px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.libro-card {
+    background-color: white;
+    margin: 0 0 20px 0;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.libro-image {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.libro-info {
+    flex: 1;
+}
+
+.libro-title {
+    font-size: 24px;
+    margin: 0 0 15px 0;
+    color: rgb(10, 10, 10);
+}
+
+.libro-data {
+    background-color: #fff;
+    padding: 15px;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.label {
+    font-weight: bold;
+    min-width: 100px;
+    color: black; /* Changed from #5a5a5a to black */
+}
+
+.materias {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.materia {
+    background-color: #00a2ff;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.archivo-info {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #5a5a5a;
+    padding-top: 15px;
+}
+
+.archivo-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.archivo {
+    background-color: #020a7c;
+    text-decoration: none;
+    padding: 4px 12px;
+    border-radius: 4px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.archivo:hover {
+    color: rgb(0, 162, 255);
+}
+
+.date {
+    color: #5a5a5a;
+    font-size: 14px;
+}
+
+.star-button {
+    width: 25px;
+    height: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    transition: transform 0.3s ease;
+}
+
+.star-button.fill {
+    background-color: gold;
+}
+
+.star-button.empty {
+    background-color: grey;
+}
+
+.star-button:hover {
+    transform: scale(1.1);
+}
+
+.star-button:active {
+    transform: scale(0.9);
+}
+
+@media (max-width: 768px) {
+    .libro-card {
+        flex-direction: column;
+    }
+
+    .libro-image {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+    }
+
+    .info-row {
+        flex-direction: column;
+    }
+
+    .archivo-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+</style>
+<br>
+<div class="titulo-container">
+    <h2 class="titulo">Mis Archivos</h2>
+</div>
+<br>
 <?php if (!empty($libros)): ?>
     <?php foreach ($libros as $libro): ?>
-    <?php foreach ($etiquetas as $etiqueta): ?>
-        <?php if ($etiqueta["id_libro"] == $libro["id_libro"]): ?>
-        <tr>
-            <td><?php echo $libro["titulo"] ?></td>
-            
-            <td>
-                <a href="<?= base_url('libros/' . $libro["id_libro"])?>">
-                <img class="img-thumbnail" src="<?php echo base_url() ?>/uploads/portadas/<?php echo $libro["portada"] ?>" width="100">
-                </a>
-            </td>
-            <td><?php echo $etiqueta["carrera_inf"] ?></td>
-            <td><?php echo $etiqueta["carrera_mar"] ?></td>
-            <td><?php echo $etiqueta["materia"] ?></td>
-            <td><?php echo $etiqueta["semestre"] ?></td>
-            <td>
-                <a href="<?php echo base_url("editar/".$libro["id_libro"])?>" class="btn btn-primary" type="button">Editar</a>
-                <a href="<?php echo base_url("borrar/".$libro["id_libro"])?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar este empleado?')" type="button">Borrar</a>
-                <?php if ($libro["visible"] == '1') { ?> 
-                    <a href="<?php echo base_url("ocultar/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Ocultar</a> 
-                    <?php } else { ?> 
-                    <a href="<?php echo base_url("mostrar/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Mostrar</a> 
-                <?php } ?> 
-                <?php if (in_array($libro["id_libro"], $favoritosIds)) { ?>
-                    <a href="<?php echo base_url("favsdelete/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Quitar de favoritos</a> 
-                    <?php } else { ?>
-                    <a href="<?php echo base_url("favs/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Añadir a Favoritos</a>
-                <?php } ?>
-            </td>
-        </tr>
-        <?php endif; ?>
+        <div class="container">
+        <div class="libro-card">
+            <a href="<?= base_url('libros/'. $libro['id_libro'])?>">
+                <img class="libro-image" src="<?= base_url('uploads/portadas/' . $libro['portada']) ?>" width="100">
+            </a>
+            <div class="libro-info">
+                <h2 class="libro-title"><?php echo $libro['titulo'];?></h2>
+                <div class="libro-data">
+                    <div class="info-row">
+                        <span class="label">Carreras:</span>
+                        <div class="materias">
+                            <?php if($libro['carrera_inf'] != 'no') :?>
+                                <span class="materia">Informática</span>
+                            <?php endif ?>
+                            <?php if($libro['carrera_mar'] != 'no') :?>
+                                <span class="materia">Marítima</span>
+                            <?php endif ?>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Materia:</span>
+                        <div class="materias">
+                            <span class="materia"><?= $libro['materia']?></span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Subido por:</span>
+                        <span class="label" style="margin-left: 20px;"><?php echo $libro['autor'];?></span>
+                    </div>
+                    <div class="archivo-info">
+                        <div class="archivo-details">
+                            <a class="archivo" href="<?= base_url('uploads/archivos/' . $libro['archivo']) ?>">Leer</a>
+                            <a href="<?php echo base_url("editar/".$libro["id_libro"])?>" class="btn btn-primary" type="button">Editar</a>
+                            <a href="<?php echo base_url("borrar/".$libro["id_libro"])?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres borrar este empleado?')" type="button">Borrar</a>
+                            <?php if ($libro["visible"] == '1') { ?> 
+                                <a href="<?php echo base_url("ocultar/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Ocultar</a> 
+                            <?php } else { ?> 
+                                <a href="<?php echo base_url("mostrar/".$libro["id_libro"])?>" class="btn btn-warning" type="button">Mostrar</a> 
+                            <?php } ?> 
+                            <span class="label">Fecha de Subida:</span>
+                            <span class="date"><?= $libro['fecha_subida']?></span>
+                        </div>
+                        <div class="rating">
+                            <?php if (in_array($libro["id_libro"], $favoritosIds)) { ?> 
+                                <a href="<?php echo base_url("favsdelete/".$libro["id_libro"])?>" class="star-button fill" type="button"></a> 
+                            <?php } else { ?>
+                                <a href="<?php echo base_url("favs/".$libro["id_libro"])?>" class="star-button empty" type="button"></a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php endforeach; ?>
-<?php endforeach; ?>
-    </tbody>
-</table>
-
 <?php else: ?>
     <p>No has subido ningún libro todavía.</p>
 <?php endif; ?>
 
-<?php echo $footer; ?>
+<?php echo $footer; 

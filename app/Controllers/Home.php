@@ -7,12 +7,8 @@ class Home extends Controller{
         if(!session()->get('logged'))
         {
             return redirect()->to('/login');
-        }else if(!session()->get('profesor'))
-        {
+        }else{
             return redirect()->to('/inicio');
-        }else
-        {
-            return redirect()->to('/inicio_profesores');
         }
     }
 }

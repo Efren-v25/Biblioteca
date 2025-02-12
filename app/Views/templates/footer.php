@@ -1,56 +1,64 @@
 </body>
 <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .footer {
+        background-color: #FFF9C4;
+        color: #000000;
+        padding: 0.5rem 0.25rem;
+        margin-top: auto;
+        font-size: 0.7rem;
+    }
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .footer-section {
+        flex: 1 1 150px;
+        margin-bottom: 0.25rem;
+        padding: 0 0.25rem;
+    }
+    .footer-section h3 {
+        font-size: 0.8rem;
+        margin: 0 0 0.2rem 0;
+    }
+    .footer-section p {
+        margin: 0.1rem 0;
+    }
+    .footer-bottom {
+        text-align: center;
+        padding-top: 0.25rem;
+        margin-top: 0.25rem;
+        border-top: 1px solid #00000033;
+        font-size: 0.65rem;
+    }
+    @media (max-width: 768px) {
         .footer {
-            background-color: #FFF9C4; /* Light yellow color */
-            color: #000000; /* Black text for better contrast */
-            padding: 1.5rem 1rem;
-            margin-top: auto;
-            font-size: 0.85rem; /* Reduced font size */
+            font-size: 0.65rem;
+            padding: 0.5rem 0.15rem;
         }
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.25rem;
         }
         .footer-section {
-            flex: 1 1 300px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.15rem;
         }
         .footer-section h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.75rem;
+            margin-bottom: 0.1rem;
         }
-        .footer-section p {
-            margin: 0.25rem 0;
-        }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 0.75rem;
-            margin-top: 0.75rem;
-            border-top: 1px solid #00000033;
-            font-size: 0.8rem; /* Even smaller font for copyright notice */
-        }
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-            }
-            .footer {
-                font-size: 0.8rem; /* Even smaller font on mobile */
-            }
-            .footer-section h3 {
-                font-size: 0.9rem;
-            }
-        }
+    }
  </style>
 <footer class="footer">
     <div class="footer-content">
