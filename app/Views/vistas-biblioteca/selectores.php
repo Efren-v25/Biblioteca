@@ -1,7 +1,7 @@
 
-<?php if (session("informatica") == 'informatica' && session("maritima") == 'desactivado'){ ?>
-<label for="materias">Materias de Informatica:</label><br>
-    <select id="materia" name="materia" required>
+<div class="materia-group" data-carrera="inf">
+<label for="materia_inf">Materias de Informatica:</label><br>
+    <select id="materia_inf" name="materia" class="materia-select" disabled>
         <option value="" disabled selected>-- Seleccionar --</option>
         <option value="administracion-bases-datos-1">Administración de Bases de Datos I</option>
         <option value="administracion-bases-datos-2">Administración de Bases de Datos II</option>
@@ -83,12 +83,12 @@
         <option value="transmision-datos-1">Transmisión de Datos I</option>
         <option value="transmision-datos-2">Transmisión de Datos II</option>
     </select>
-<?php } ?>
+</div>
 
 
-<?php if (session("maritima") == 'maritima' && session("informatica") == 'desactivado' ){ ?>
-<label for="materias">Materias de Maritima:</label><br>
-    <select id="materia" name="materia" required>
+<div class="materia-group" data-carrera="mar">
+<label for="materia_mar">Materias de Maritima:</label><br>
+    <select id="materia_mar" name="materia" class="materia-select" disabled>
         <option value="" disabled selected>-- Seleccionar --</option>
         <option value="automatismo-instrumentacion-1">Automatismo e Instrumentación I</option>
         <option value="automatismo-instrumentacion-2">Automatismo e Instrumentación II</option>
@@ -168,11 +168,11 @@
         <option value="teoria-economica">Teoría Económica</option>
         <option value="termodinamica">Termodinámica</option>
     </select>
-<?php } ?>
+</div>
 
-<?php if (session("maritima") == 'maritima' && session("informatica") == 'informatica' ){ ?>
-<label for="materias-comunes">Materias comunes:</label><br>
-    <select id="materia" name="materia" required>
+<div class="materia-group" data-carrera="both">
+<label for="materia_comun">Materias comunes:</label><br>
+    <select id="materia_comun" name="materia" class="materia-select" disabled>
         <option value="" disabled selected>-- Seleccionar --</option>
         <option value="calculo-1">Cálculo I</option>
         <option value="calculo-2">Cálculo II</option>
@@ -198,7 +198,7 @@
         <option value="servicio-social-comunitario">Servicio Social Comunitario</option>
         <option value="teoria-economica">Teoría Económica</option>
     </select>
-<?php } ?>
+</div>
 
 <br><label for="semestre">Semestre</label><br>
     <select id="semestre" name="semestre">

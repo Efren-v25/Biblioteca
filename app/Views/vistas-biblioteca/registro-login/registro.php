@@ -11,29 +11,36 @@
             margin: 0;
             padding: 20px;
             min-height: 100vh;
-            background-color: #B3E0FF;
-            font-family: Arial, sans-serif;
+            background:
+                radial-gradient(900px 260px at 10% 0%, #f7f0d8 0%, transparent 60%),
+                radial-gradient(900px 260px at 90% 0%, #e4f0ff 0%, transparent 60%),
+                #eef1f6;
+            font-family: "Work Sans", Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .logo {
-            width: 4rem;  /* 4x4 size */
-            height: 4rem;
+            width: 4.2rem;
+            height: 4.2rem;
             position: fixed;
             top: 1rem;
             left: 1rem;
-            object-fit: contain; /* Maintains aspect ratio */
-            z-index: 1000; /* Ensures logo stays on top */
-            border-radius: 50%; /* Optional: keeps the circular shape */
+            object-fit: contain;
+            z-index: 1000;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid rgba(31, 42, 68, 0.12);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
         }
 
         .container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(150deg, #fffdf3 0%, #ffffff 55%, #eef6ff 100%);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(31, 42, 68, 0.08);
+            box-shadow: 0 16px 28px rgba(0, 0, 0, 0.12);
             width: 100%;
             max-width: 400px;
             margin-top: 60px;
@@ -41,14 +48,14 @@
 
         h1 {
             text-align: center;
-            color: #000;
-            font-size: 24px;
-            margin: 0 0 10px 0;
+            color: #0f3d66;
+            font-size: 26px;
+            margin: 0 0 8px 0;
         }
 
         .subtitle {
             text-align: center;
-            color: #666;
+            color: #3a4a6a;
             font-size: 14px;
             margin-bottom: 30px;
         }
@@ -60,19 +67,30 @@
         label {
             display: block;
             margin-bottom: 8px;
-            color: #000;
+            color: #1f2a44;
             font-size: 14px;
+            font-weight: 600;
         }
 
         input[type="email"],
         input[type="password"],
         input[type="text"] {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 10px 12px;
+            border: 1px solid rgba(31, 42, 68, 0.16);
+            border-radius: 10px;
             box-sizing: border-box;
             font-size: 14px;
+            background: #f8fbff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: rgba(31, 111, 178, 0.6);
+            box-shadow: 0 0 0 4px rgba(31, 111, 178, 0.12);
         }
 
         .password-container {
@@ -82,46 +100,97 @@
         button {
             width: 100%;
             padding: 12px;
-            background-color: #FFE97F;
+            background: linear-gradient(135deg, #1f6fb2, #0f3d66);
             border: none;
-            border-radius: 4px;
-            color: #000;
+            border-radius: 999px;
+            color: #ffffff;
             font-size: 14px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-weight: 600;
         }
 
         button:hover {
-            background-color: #FFD700;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 18px rgba(31, 42, 68, 0.18);
         }
 
         .login-section {
             text-align: center;
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid rgba(31, 42, 68, 0.12);
         }
 
         .login-section p {
-            color: #666;
+            color: #3a4a6a;
             font-size: 14px;
             margin: 0;
         }
 
         .login-link {
-            color: #666;
+            color: #1f6fb2;
             text-decoration: none;
             font-size: 14px;
+            font-weight: 600;
         }
 
         .login-link:hover {
             text-decoration: underline;
         }
+
+        .unlock-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 6px;
+            flex-wrap: wrap;
+        }
+
+        .unlock-note {
+            font-size: 12px;
+            color: #3a4a6a;
+            flex: 1 1 100%;
+        }
+
+        .unlock-input {
+            flex: 1 1 140px;
+            max-width: 160px;
+        }
+
+        .unlock-btn {
+            background: #ffffff;
+            border: 1px solid rgba(31, 42, 68, 0.16);
+            color: #1f2a44;
+            padding: 6px 10px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .unlock-btn:hover {
+            background: #eaf3ff;
+        }
+
+        .unlock-message {
+            font-size: 12px;
+            color: #b3261e;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .input-locked {
+            background: #f1f4f8;
+            color: #8b95a7;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 
 <body>
-    <img src="<?= base_url('img/logo_pergamo.jpeg')?>" alt="Logo" class="logo">
+    <img src="<?= base_url('img/logo_umc.png')?>" alt="Logo" class="logo">
 
     <div class="container">
         <h1>Biblioteca Virtual UMC</h1>
@@ -184,8 +253,18 @@
 
             <div class="form-group">
                 <label for="code">Código de profesor (si aplica)</label>
-                <input type="text" name="code" id="code">
-
+                <input type="text" name="code" id="code" class="input-locked" disabled>
+                <div class="unlock-row">
+                    <span class="unlock-note">Desbloquea el campo con una clave de 4 caracteres.</span>
+                    <input type="password" id="unlockKey" class="unlock-input form-control" maxlength="4" placeholder="Clave">
+                    <button class="unlock-btn" type="button" id="unlockCode">Desbloquear</button>
+                </div>
+                <div class="unlock-message" id="unlockMessage">Incorrecto</div>
+                <?php if (session("errores.code")) : ?>
+                    <div class="text-danger">
+                        <?= session("errores.code") ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <button type="submit" name="registrar">Registrarse</button>
@@ -197,6 +276,36 @@
         </div>
     </div>
 
+    <script>
+        const unlockButton = document.querySelector("#unlockCode");
+        const codeInput = document.querySelector("#code");
+        const unlockInput = document.querySelector("#unlockKey");
+        const unlockMessage = document.querySelector("#unlockMessage");
+
+        if (unlockButton && codeInput && unlockInput && unlockMessage) {
+            const tryUnlock = () => {
+                if (unlockInput.value === "1234") {
+                    codeInput.disabled = false;
+                    codeInput.classList.remove("input-locked");
+                    codeInput.focus();
+                    unlockButton.textContent = "Desbloqueado";
+                    unlockButton.disabled = true;
+                    unlockInput.disabled = true;
+                    unlockMessage.style.display = "none";
+                } else {
+                    unlockMessage.style.display = "block";
+                }
+            };
+
+            unlockButton.addEventListener("click", tryUnlock);
+            unlockInput.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    tryUnlock();
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

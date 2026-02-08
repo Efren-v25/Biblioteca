@@ -57,11 +57,7 @@ class Cbiblioteca extends Controller{
                 "code" => $datosUsuario[0]["code"]
             ];
 
-            if($data["code"] == 138062){        //Verifica el codigo del usuario y lo agrega al array de datos de la session
-                $data["profesor"] = true;
-            }else{
-                $data["profesor"] = false;
-            }
+            $data["profesor"] = $data["code"] !== null && trim((string) $data["code"]) !== "";
 
             $session = session();
                 $session->set($data);
@@ -100,6 +96,15 @@ class Cbiblioteca extends Controller{
         else if (!isset($_POST['checkbox_maritima'])){
             $maritima = "desactivado"; 
             $session->set('maritima', $maritima);}
+
+            if (isset($_POST['checkbox_otros'])) {
+                $otros = $this->request->getPost('checkbox_otros');
+                $session->set('otros', $otros);
+            }
+            else if (!isset($_POST['checkbox_otros'])){
+                $otros = "desactivado"; 
+                $session->set('otros', $otros);
+            }
         }
         $datos["header"] = view("templates/header"); 
         $datos["footer"] = view("templates/footer");
@@ -128,6 +133,15 @@ class Cbiblioteca extends Controller{
         else if (!isset($_POST['checkbox_maritima'])){
             $maritima = "desactivado"; 
             $session->set('maritima', $maritima);}
+
+            if (isset($_POST['checkbox_otros'])) {
+                $otros = $this->request->getPost('checkbox_otros');
+                $session->set('otros', $otros);
+            }
+            else if (!isset($_POST['checkbox_otros'])){
+                $otros = "desactivado"; 
+                $session->set('otros', $otros);
+            }
         }
         return $this->response->redirect(base_url("/editar/$id"));
     }   

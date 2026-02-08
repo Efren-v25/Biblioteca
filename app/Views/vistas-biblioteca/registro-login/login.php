@@ -10,29 +10,36 @@
             margin: 0;
             padding: 20px;
             min-height: 100vh;
-            background-color: #B3E0FF;
-            font-family: Arial, sans-serif;
+            background:
+                radial-gradient(900px 260px at 10% 0%, #f7f0d8 0%, transparent 60%),
+                radial-gradient(900px 260px at 90% 0%, #e4f0ff 0%, transparent 60%),
+                #eef1f6;
+            font-family: "Work Sans", Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .logo {
-            width: 4rem;  /* 4x4 size */
-            height: 4rem;
+            width: 4.2rem;
+            height: 4.2rem;
             position: fixed;
             top: 1rem;
             left: 1rem;
-            object-fit: contain; /* Maintains aspect ratio */
-            z-index: 1000; /* Ensures logo stays on top */
-            border-radius: 50%; /* Optional: keeps the circular shape */
+            object-fit: contain;
+            z-index: 1000;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid rgba(31, 42, 68, 0.12);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
         }
         
         .container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(150deg, #fffdf3 0%, #ffffff 55%, #eef6ff 100%);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(31, 42, 68, 0.08);
+            box-shadow: 0 16px 28px rgba(0, 0, 0, 0.12);
             width: 100%;
             max-width: 400px;
             margin-top: 60px;
@@ -40,14 +47,14 @@
 
         h1 {
             text-align: center;
-            color: #000;
-            font-size: 24px;
-            margin: 0 0 10px 0;
+            color: #0f3d66;
+            font-size: 26px;
+            margin: 0 0 8px 0;
         }
 
         .subtitle {
             text-align: center;
-            color: #666;
+            color: #3a4a6a;
             font-size: 14px;
             margin-bottom: 30px;
         }
@@ -59,19 +66,30 @@
         label {
             display: block;
             margin-bottom: 8px;
-            color: #000;
+            color: #1f2a44;
             font-size: 14px;
+            font-weight: 600;
         }
 
         input[type="email"],
         input[type="password"],
         input[type="text"] {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 10px 12px;
+            border: 1px solid rgba(31, 42, 68, 0.16);
+            border-radius: 10px;
             box-sizing: border-box;
             font-size: 14px;
+            background: #f8fbff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: rgba(31, 111, 178, 0.6);
+            box-shadow: 0 0 0 4px rgba(31, 111, 178, 0.12);
         }
 
         .password-container {
@@ -113,36 +131,39 @@
         button {
             width: 100%;
             padding: 12px;
-            background-color: #FFE97F;
+            background: linear-gradient(135deg, #1f6fb2, #0f3d66);
             border: none;
-            border-radius: 4px;
-            color: #000;
+            border-radius: 999px;
+            color: #ffffff;
             font-size: 14px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-weight: 600;
         }
 
         button:hover {
-            background-color: #FFD700;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 18px rgba(31, 42, 68, 0.18);
         }
 
         .register-section {
             text-align: center;
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid rgba(31, 42, 68, 0.12);
         }
 
         .register-section p {
-            color: #666;
+            color: #3a4a6a;
             font-size: 14px;
             margin: 0;
         }
 
         .register-link {
-            color: #666;
+            color: #1f6fb2;
             text-decoration: none;
             font-size: 14px;
+            font-weight: 600;
         }
 
         .register-link:hover {
@@ -152,7 +173,7 @@
     
 </head>
 <body>
-    <img src="<?= base_url('img/logo_pergamo.jpeg')?>" alt="Logo" class="logo">
+    <img src="<?= base_url('img/logo_umc.png')?>" alt="Logo" class="logo">
     
     <div class="container">
         <h1>Biblioteca Virtual UMC</h1>
@@ -168,7 +189,7 @@
                 <label for="password">Contraseña</label>
                 <div class="password-container">
                     <input type="password" id="contraseña" name="contraseña" >
-                    <span class="toggle-password">👁</span>
+                    <span class="toggle-password" role="button" aria-label="Mostrar contraseña" tabindex="0">👁</span>
                 </div>
                 <?php if(session("mensaje")){ ?>
                         <div class="text-danger">
@@ -194,5 +215,28 @@
         </div>
     </div>
 
+    <script>
+        const toggle = document.querySelector(".toggle-password");
+        const input = document.querySelector("#contraseña");
+
+        if (toggle && input) {
+            const toggleVisibility = () => {
+                const isPassword = input.type === "password";
+                input.type = isPassword ? "text" : "password";
+                toggle.setAttribute(
+                    "aria-label",
+                    isPassword ? "Ocultar contraseña" : "Mostrar contraseña"
+                );
+            };
+
+            toggle.addEventListener("click", toggleVisibility);
+            toggle.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    toggleVisibility();
+                }
+            });
+        }
+    </script>
 </body>
 </html>

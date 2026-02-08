@@ -84,12 +84,13 @@ class CrudUsuarios extends Controller
         $contraseña_hash = password_hash($contraseña, PASSWORD_DEFAULT);
 
         if($correo=$this->request->getVar("correo")){
+            $code = $this->request->getVar("code");
             //obtener los datos del formulario y la contraseña hasheada
             $datos=[
                 "nombre"=> $this->request->getVar("nombre"),
                 "apellido"=> $this->request->getVar("apellido"),
                 "correo"=> $this->request->getVar("correo"),
-                "code"=> $this->request->getVar("code"),
+                "code"=> $code,
                 "contraseña"=> $contraseña_hash    
             ];
 
