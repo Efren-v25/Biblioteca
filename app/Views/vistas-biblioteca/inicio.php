@@ -13,6 +13,30 @@ body {
             color: #000000;
         }
 
+        .welcome {
+            max-width: 900px;
+            margin: 10px auto 24px auto;
+            text-align: center;
+            background: linear-gradient(120deg, #fff7da 0%, #fff7da 60%, #fff7da 100%);
+            border: 1px solid rgba(31, 42, 68, 0.12);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 18px 20px;
+        }
+
+        .welcome-title {
+            margin: 0;
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #0f3d66;
+        }
+
+        .welcome-subtitle {
+            margin: 6px 0 0 0;
+            font-size: 1.1rem;
+            color: #3a4a6a;
+        }
+
         .biblioteca {
             display: flex;
             flex-wrap: wrap;
@@ -22,14 +46,21 @@ body {
         }
 
         .libro-card {
-            background-color: #ffffe0;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(160deg, #fffdf3 0%, #ffffff 55%, #eef6ff 100%);
+            border-radius: 14px;
+            border: 1px solid rgba(31, 42, 68, 0.08);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             width: 250px;
             margin: 10px;
             display: flex;
             flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .libro-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 28px rgba(0, 0, 0, 0.14);
         }
 
         .libro-portada {
@@ -41,6 +72,11 @@ body {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+
+        .libro-card:hover .libro-portada img {
+            transform: scale(1.05);
         }
 
         .libro-info {
@@ -52,13 +88,13 @@ body {
 
         .libro-titulo {
             margin: 0 0 8px 0;
-            font-size: 1.2em;
-            color: #000000;
+            font-size: 1.15em;
+            color: #0f3d66;
         }
 
         .libro-autor {
             margin: 0 0 12px 0;
-            color: #000000;
+            color: #3a4a6a;
             font-style: italic;
         }
 
@@ -69,13 +105,14 @@ body {
 
         .carrera {
             display: inline-block;
-            background-color: #00a2ff;
-            color: #000000;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-right: 4px;
-            margin-bottom: 4px;
+            background: linear-gradient(135deg, #e2f0ff, #ffffff);
+            color: #1f2a44;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.78em;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            border: 1px solid rgba(31, 42, 68, 0.12);
         }
 
         .libro-footer {
@@ -87,7 +124,7 @@ body {
         .libro-fecha {
             margin: 0;
             font-size: 0.8em;
-            color: #000000;
+            color: #3a4a6a;
             display: inline-block;
         }
 
@@ -122,11 +159,22 @@ body {
         }
 
         .star-button:hover {
-            transform: scale(1.1);
+            transform: scale(1.12);
         }
 
         .star-button:active {
-            transform: scale(0.9);
+            transform: scale(0.95);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @media (max-width: 1100px) {
@@ -151,18 +199,19 @@ body {
         }
 </style>
 
+<div class="welcome">
 <?php if (session()->get("profesor")): ?> 
-    <br><h2>Bienvenid@ Prof. <?php echo session("nombre") ." ". session("apellido"); ?></h2><br>
+    <h2 class="welcome-title">Bienvenid@ Prof. <?php echo session("nombre") ." ". session("apellido"); ?></h2>
 <?php else: ?>
-    <br><h2>Bienvenid@ Estudiante <?php echo session("nombre") ." ". session("apellido"); ?></h2><br>
+    <h2 class="welcome-title">Bienvenid@ Estudiante <?php echo session("nombre") ." ". session("apellido"); ?></h2>
 <?php endif ?>
-
-    <h3>Te recomendamos los siguientes libros:</h3>
+    <h3 class="welcome-subtitle">Te recomendamos los siguientes libros:</h3>
+</div>
 <div class="biblioteca">
 <?php foreach ($libros as $libro): ?>
     <?php foreach ($etiquetas as $etiqueta): ?>
         <?php if ($etiqueta["id_libro"] == $libro["id_libro"]): ?>
-        <div class="libro-card">
+        <div class="libro-card reveal">
             <div class="libro-portada">
                 <a href="<?= base_url('libros/' . $libro['id_libro'])?>"><img src="<?php echo base_url()?>/uploads/portadas/<?php echo $libro["portada"]?>" class="card-img-top img-fluid" alt="Card Image" "></a>
             </div>
@@ -188,6 +237,23 @@ body {
 <?php endforeach; ?>
     </div>
 </div><br>
+
+<script>
+    const cards = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+</script>
 
 <?php echo $footer; ?>
 

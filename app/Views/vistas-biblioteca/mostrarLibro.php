@@ -20,10 +20,22 @@
             flex-direction: column;
             max-width: 1100px;
             width: 90%;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(160deg, #fffdf3 0%, #ffffff 55%, #eef6ff 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(31, 42, 68, 0.08);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
             overflow: hidden;
+        }
+
+        .tarjeta .img-thumbnail {
+            width: 100%;
+            max-width: 240px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba(31, 42, 68, 0.12);
+            margin: 14px;
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
         }
 
         .tarjeta-content {
@@ -35,19 +47,19 @@
 
         .tarjeta-content h1 {
             font-size: 32px;
-            color: #333;
-            margin-bottom: 10px;
+            color: #0f3d66;
+            margin-bottom: 8px;
         }
 
         .tarjeta-content p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 5px;
+            font-size: 17px;
+            color: #3a4a6a;
+            margin-bottom: 6px;
         }
 
         .tarjeta-content .info {
             font-size: 16px;
-            color: #777;
+            color: #3a4a6a;
         }
 
         .info span {
@@ -55,10 +67,10 @@
         }
 
         .leer {
-            background-color: #10006d;
+            background: linear-gradient(135deg, #1f6fb2, #0f3d66);
             text-decoration: none;
-            padding: 4px 18px;
-            border-radius: 4px;
+            padding: 6px 20px;
+            border-radius: 999px;
             color: white;
             transition: color 0.3s ease;
             display: inline-block;
@@ -77,39 +89,59 @@
         }
 
         .comentarios-container {
-            display: flex;
-            align-items: center;
+            display: block;
             background-color: #fff;
-            border: 2px solid #ddd;
-            border-radius: 50px;
-            padding: 5px 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(31, 42, 68, 0.16);
+            border-radius: 16px;
+            padding: 12px 14px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
             width: 90%;
             max-width: 1100px;
-            height: 50px;
+        }
+
+        .comentarios-container form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .comentarios-container input[type="text"] {
-            border: none;
+            border: 1px solid rgba(31, 42, 68, 0.12);
             outline: none;
-            padding: 5px 10px;
+            padding: 10px 14px;
             font-size: 14px;
-            height: 20px;
+            height: 42px;
             width: 100%;
-            border-radius: 50px;
+            border-radius: 999px;
+            background: #f8fbff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .comentarios-container input[type="text"]:focus {
+            border-color: rgba(31, 111, 178, 0.6);
+            box-shadow: 0 0 0 4px rgba(31, 111, 178, 0.12);
         }
 
         .comentarios-container button {
-            background: none;
+            background: linear-gradient(135deg, #1f6fb2, #0f3d66);
             border: none;
             outline: none;
             cursor: pointer;
-            height: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            margin-left: 5px;
+            height: 42px;
+            padding: 0 18px;
+            border-radius: 999px;
+            color: #fff;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .comentarios-container button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 16px rgba(31, 42, 68, 0.18);
+        }
+
+        .comentarios-container button:active {
+            transform: translateY(0);
         }
 
         .comentarios-lista {
@@ -119,11 +151,12 @@
         }
 
         .comentario {
-            border-radius: 8px;
-            padding: 10px;
+            border-radius: 12px;
+            padding: 12px 14px;
             margin-bottom: 10px;
             background: #fff;
-            box-shadow:  0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(31, 42, 68, 0.08);
+            box-shadow:  0 8px 16px rgba(0, 0, 0, 0.08);
             
         }
 
@@ -147,12 +180,12 @@
         .comentario-autor {
             font-weight: bold;
             margin: 0;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         .comentario-fecha {
             font-size: 12px;
-            color: #777;
+            color: #6b7a95;
             margin: 0;
         }
 
@@ -160,6 +193,7 @@
             margin: 5px 0 0;
             font-size: 14px;
             line-height: 1.4;
+            color: #1f2a44;
         }
 
         @media (min-width: 768px) {
@@ -167,9 +201,28 @@
                 flex-direction: row;
             }
 
-            .tarjeta img {
-                width: 200px;
-                height: auto;
+            .tarjeta .img-thumbnail {
+                width: 220px;
+                height: 300px;
+                margin: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .comentarios-container form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .comentarios-container button {
+                width: 100%;
+            }
+
+            .tarjeta .img-thumbnail {
+                width: calc(100% - 28px);
+                max-width: 360px;
+                height: 280px;
+                margin: 14px auto 0;
             }
         }
 </style>
@@ -221,7 +274,7 @@
             <div class="comentario-header">
                 <div class="comentario-info">
                     <h4 class="comentario-autor"><?= $comentario["nombre"] . " " . $comentario["apellido"]?></h4>
-                    <p class="comentario-fecha"><?=$comentario["fecha"]?></p>
+                    <p class="comentario-fecha"><?= $comentario["fecha_subida"] ?? "" ?></p>
                 </div>
             </div>
             <p class="comentario-contenido"><?= $comentario["comentario"] ?></p>

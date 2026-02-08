@@ -22,7 +22,7 @@ body {
 .titulo {
     display: flex;
     align-items: center;
-    border-bottom: 2px solid #5a5a5a;
+    border-bottom: 2px solid rgba(31, 42, 68, 0.25);
     width: 100%;
     max-width: 1100px;
     height: 50px;
@@ -36,20 +36,33 @@ body {
 }
 
 .libro-card {
-    background-color: white;
+    background: linear-gradient(150deg, #fffdf3 0%, #ffffff 55%, #eef6ff 100%);
     margin: 0 0 20px 0;
     padding: 20px;
     display: flex;
     gap: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 14px;
+    border: 1px solid rgba(31, 42, 68, 0.08);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.libro-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 28px rgba(0,0,0,0.14);
 }
 
 .libro-image {
     width: 180px;
     height: 240px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 10px;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+    transition: transform 0.35s ease;
+}
+
+.libro-card:hover .libro-image {
+    transform: scale(1.04);
 }
 
 .libro-info {
@@ -59,11 +72,11 @@ body {
 .libro-title {
     font-size: 24px;
     margin: 0 0 15px 0;
-    color: rgb(10, 10, 10);
+    color: #0f3d66;
 }
 
 .libro-data {
-    background-color: #fff;
+    background-color: transparent;
     padding: 15px;
 }
 
@@ -77,7 +90,7 @@ body {
 .label {
     font-weight: bold;
     min-width: 100px;
-    color: black; /* Changed from #5a5a5a to black */
+    color: #1f2a44;
 }
 
 .materias {
@@ -87,11 +100,12 @@ body {
 }
 
 .materia {
-    background-color: #00a2ff;
-    color: white;
+    background: linear-gradient(135deg, #e2f0ff, #ffffff);
+    color: #1f2a44;
     padding: 4px 12px;
-    border-radius: 4px;
+    border-radius: 999px;
     font-size: 14px;
+    border: 1px solid rgba(31, 42, 68, 0.12);
 }
 
 .archivo-info {
@@ -99,7 +113,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid #5a5a5a;
+    border-top: 1px solid rgba(31, 42, 68, 0.18);
     padding-top: 15px;
 }
 
@@ -110,7 +124,7 @@ body {
 }
 
 .archivo {
-    background-color: #020a7c;
+    background: linear-gradient(135deg, #1f6fb2, #0f3d66);
     text-decoration: none;
     padding: 4px 12px;
     border-radius: 4px;
@@ -123,7 +137,7 @@ body {
 }
 
 .date {
-    color: #5a5a5a;
+    color: #3a4a6a;
     font-size: 14px;
 }
 
@@ -158,11 +172,22 @@ body {
 }
 
 .star-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.12);
 }
 
 .star-button:active {
-    transform: scale(0.9);
+    transform: scale(0.95);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -191,7 +216,7 @@ body {
 <body>
 <?php foreach($resultados as $resultado):?>
     <div class="container">
-        <div class="libro-card">
+        <div class="libro-card reveal">
             <a href="<?= base_url('libros/'. $resultado['id_libro'])?>">
                 <img class="libro-image" src="<?= base_url('uploads/portadas/' . $resultado['portada']) ?>" width="100">
             </a>
@@ -238,4 +263,20 @@ body {
         </div>
     </div>
 <?php endforeach;?>
+<script>
+    const cards = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+</script>
 <?= $footer ?>
