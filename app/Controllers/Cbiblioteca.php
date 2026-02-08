@@ -54,7 +54,8 @@ class Cbiblioteca extends Controller{
                 "id_usuario" => $datosUsuario[0]["id_usuario"],
                 "nombre" => $datosUsuario[0]["nombre"],
                 "apellido" => $datosUsuario[0]["apellido"],
-                "code" => $datosUsuario[0]["code"]
+                "code" => $datosUsuario[0]["code"],
+                "rango" => $datosUsuario[0]["rango"]
             ];
 
             $data["profesor"] = $data["code"] !== null && trim((string) $data["code"]) !== "";

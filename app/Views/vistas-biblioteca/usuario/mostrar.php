@@ -100,11 +100,7 @@
         <div class="perfil-header">
             <h2 class="perfil-title">Perfil de Usuario</h2>
             <span class="perfil-role">
-                <?php if($usuario['code'] == 138062){
-                    echo "Profesor";
-                }else{
-                    echo "Estudiante";
-                }?>
+                <?= ucfirst($usuario['rango']) ?>
             </span>
         </div>
         <div class="perfil-grid">
@@ -123,11 +119,7 @@
             <div class="perfil-item">
                 <span class="perfil-label">Rango</span>
                 <span class="perfil-value">
-                    <?php if($usuario['code'] == 138062){
-                        echo "Profesor";
-                    }else{
-                        echo "Estudiante";
-                    }?>
+                    <?= ucfirst($usuario['rango']) ?>
                 </span>
             </div>
         </div>

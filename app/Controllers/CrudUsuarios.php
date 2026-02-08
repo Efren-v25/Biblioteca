@@ -85,12 +85,20 @@ class CrudUsuarios extends Controller
 
         if($correo=$this->request->getVar("correo")){
             $code = $this->request->getVar("code");
+            $rango = ($code !== null && trim((string)$code) !== "") ? "profesor" : "estudiante";
+            
+            // convert empty string to null for database compatibility
+            if (trim((string)$code) === "") {
+                $code = null;
+            }
+
             //obtener los datos del formulario y la contraseña hasheada
             $datos=[
                 "nombre"=> $this->request->getVar("nombre"),
                 "apellido"=> $this->request->getVar("apellido"),
                 "correo"=> $this->request->getVar("correo"),
                 "code"=> $code,
+                "rango"=> $rango,
                 "contraseña"=> $contraseña_hash    
             ];
 
