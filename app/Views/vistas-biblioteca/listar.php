@@ -183,8 +183,14 @@ body {
 .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+    
 }
-
+    .archivo-msg {
+        position: center;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
 @media (max-width: 768px) {
     .libro-card {
         flex-direction: column;
@@ -205,6 +211,7 @@ body {
         align-items: flex-start;
         gap: 10px;
     }
+
 }
 </style>
 <br>
@@ -270,7 +277,7 @@ body {
     </div>
     <?php endforeach; ?>
 <?php else: ?>
-    <p>No has subido ningún libro todavía.</p>
+   <h4 class="archivo-msg">No has subido ningún libro todavía.</h4>
 <?php endif; ?>
 
 <?php echo $footer; 
